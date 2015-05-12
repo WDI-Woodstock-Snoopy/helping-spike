@@ -49,7 +49,7 @@ $(document).ready(function(){
 
 
 // To add the marker to the map, call setMap();
-marker.setMap(map);
+// marker.setMap(map);
 
 // google.maps.event.addDomListener(window, 'load', initializeMap);
 

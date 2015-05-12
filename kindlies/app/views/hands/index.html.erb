@@ -1,10 +1,18 @@
 <h1>Main page</h1>
 
-<%= form_for(Hand.new, :remote => true) do |f|%>
+<!-- <%= form_for(Hand.new, :remote => true) do |f|%>
   <%= f.label :message %>
   <%= f.text_field :message %>
   <%= f.submit %>
-<% end %>
+<% end %> -->
+
+
+</form>
+
+<form action= "/hands" class="new_hand" id="new_hand">
+  <input type="text" name="title" placeholder="Headline....">
+  <input type="submit" value="Search">
+</form>
 
 <ul>
 <% @hands.each do |hand| %>
@@ -15,3 +23,32 @@
 
 <% end %>
 </ul>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+  $( "#new_hand" ).submit(function( event ) {
+    event.preventDefault();
+
+  // Stop form from submitting normally
+  event.preventDefault();
+
+  // Get some values from elements on the page:
+
+  headline = $( "#new_hand" ).find( "input[name='title']" ).val();
+  console.log(headline);
+
+  // Send the data using post
+    $.ajax({
+    method: "POST",
+    url: "/hands",
+    data: {"hand": { title: headline}}
+  });
+  // .done(function( msg ) {
+  //   alert( "Data Saved: " + msg );
+  // });
+  });
+
+})
+
+</script>
