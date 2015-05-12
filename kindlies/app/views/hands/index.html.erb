@@ -1,6 +1,6 @@
 <h1>Main page</h1>
 
-<%= form_for Hand.new do |f|%>
+<%= form_for(Hand.new, :remote => true) do |f|%>
   <%= f.label :message %>
   <%= f.text_field :message %>
   <%= f.submit %>

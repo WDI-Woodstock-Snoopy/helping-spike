@@ -3,14 +3,12 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 console.log('hello!!')
 
-var map;
 var latitude;
 var longitude;
 
 $(document).ready(function(){
 
-  $('#new_hand').submit(function(e){
-    e.preventDefault();
+  $('#new_hand').submit(function(){
     console.log('TESTING 123')
 
     if(navigator.geolocation) {
@@ -34,9 +32,24 @@ $(document).ready(function(){
         var content = 'Error: Your browser doesn\'t support geolocation.';
       }
     }
-  })
+
+    // $.ajax({
+    //   url: '/hands',
+    //   type: 'POST',
+    //   dataType: 'json',
+    //   data: { "hand":
+    //     { "lat": latitude,
+    //     "long": longitude }
+    // }})
+
+    })
 
 })
+
+
+
+// To add the marker to the map, call setMap();
+marker.setMap(map);
 
 // google.maps.event.addDomListener(window, 'load', initializeMap);
 
