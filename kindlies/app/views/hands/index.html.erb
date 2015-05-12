@@ -8,6 +8,19 @@
   <input type="submit" value="Share the Love!">
 </form>
 
+<h1> Hot </h1>
+<ul>
+<% @hands.each do |hand| %>
+
+  <li>
+    <%= hand.title %> : <%= hand.message%>
+  </li>
+
+<% end %>
+</ul>
+
+
+<h1> New </h1>
 <ul>
 <% @hands.each do |hand| %>
 
