@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
   def create
     user = User.create( user_params )
-    redirect_to "/users/#{ user.id }"
+    redirect_to "/sign_in"
   end
 
   def edit
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-  params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password)
   end
 
 end
