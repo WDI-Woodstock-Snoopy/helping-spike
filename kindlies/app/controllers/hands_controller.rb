@@ -1,7 +1,11 @@
 class HandsController < ApplicationController
 
+  def index
+    @hands = Hand.all
+  end
+
   def new
-    @hand = Hand.new
+    @hands = Hand.new
   end
 
   def create
