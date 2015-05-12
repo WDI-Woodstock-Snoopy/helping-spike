@@ -7,3 +7,16 @@
   <%= password_field_tag :password %>
   <%= submit_tag "Sign-In" %>
  <% end %>
+
+<script type="text/javascript">
+
+ $('#password').on('keyup', function(){
+   var field = $(this);
+   if (field.val().length < 7){
+     $(this).css({backgroundColor: 'red'});
+   } else {
+     $(this).css({backgroundColor: 'green'});
+   }
+ });
+
+</script>
