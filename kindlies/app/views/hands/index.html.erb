@@ -8,21 +8,24 @@
   <input type="submit" value="Share the Love!">
 </form>
 
-<h1> Hot </h1>
+<h3> Hot </h3>
 <ul>
-<% @hands.each do |hand| %>
-
+<% @hot.each do |hand| %>
   <li>
     <%= hand.title %> : <%= hand.message%>
+    <%=link_to "upvote", like_hand_path(hand), method: :put %>
+    <%= hand.score %>
   </li>
 
 <% end %>
 </ul>
 
 
-<h1> New </h1>
+
+
+<h3> New </h3>
 <ul>
-<% @hands.each do |hand| %>
+<% @new.each do |hand| %>
 
   <li>
     <%= hand.title %> : <%= hand.message%>

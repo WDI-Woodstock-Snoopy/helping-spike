@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   resources :users
-  resources :hands
+  resources :hands do
+    member do
+      put "like", to: "hands#upvote"
+    end
+  end
 
   get '/sign_in' => 'users#sign_in'
   get '/api' => 'hands#handsapi'
@@ -11,6 +15,7 @@ Rails.application.routes.draw do
 
   post '/session_log_in' => 'sessions#log_in_behavior'
   delete '/session_log_out' => 'sessions#log_out_behavior'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
