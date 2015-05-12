@@ -31,7 +31,7 @@ function initializeMap(){
       .done(function(data){
         console.log(data)
 
-        for (var i = 0; i < locations.length; i++) {
+        for (var i = 0; i < data.length; i++) {
           marker = new google.maps.Marker({
             position: new google.maps.LatLng(data[i].lat, data[i].long),
             map: map
