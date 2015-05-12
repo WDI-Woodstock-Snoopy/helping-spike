@@ -5,3 +5,13 @@
   <%= f.text_field :message %>
   <%= f.submit %>
 <% end %>
+
+<ul>
+<% @hands.each do |hand| %>
+
+  <li>
+    <%= hand.message %>
+  </li>
+
+<% end %>
+</ul>

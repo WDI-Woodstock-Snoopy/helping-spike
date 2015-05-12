@@ -7,7 +7,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :long
       t.integer :rank
 
-
       t.timestamps null: false
     end
   end
