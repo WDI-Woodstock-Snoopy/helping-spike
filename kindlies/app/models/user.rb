@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
+  has_secure_password
+  validates_presence_of :password, on: :create
+  validates :password, length: {7..20}
 
-  #WE COULD PUT VALIDATIONS HERE.....
-  
+
   has_many :hands
   def to_s
     self.username
