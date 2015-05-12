@@ -1,6 +1,5 @@
 <h1>Main page</h1>
 
-</form>
 
 <form action= "/hands" class="new_hand" id="new_hand">
   <%= token_tag %>
@@ -18,3 +17,23 @@
 
 <% end %>
 </ul>
+
+<script type="text/javascript">
+
+function getData(){
+  $.ajax({
+       method: 'get',
+       url: '/hands',
+       dataType: 'json'
+       })
+       .done(function(data){
+         for(var i=0; i<data.length; i++){
+           console.log(data);
+         }
+     });
+}
+
+  getData();
+
+
+</script>

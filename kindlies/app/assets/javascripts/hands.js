@@ -2,13 +2,14 @@
 // // # All this logic will automatically be available in application.js.
 // // # You can use CoffeeScript in this file: http://coffeescript.org/
 
-
-
+//DECLARES VARIABLES FOR LOCATION AND FOR AJAX....NEED TO NAMESPACE
 var latitude;
 var longitude;
 var summary;
 var content;
+var locations = [];
 
+//THIS FUNCTION RETRIEVES THE LOCATION OF THE USER THAT WILL BE ASSIGNED TO THE NEW POST
 function getCoords(callback){
 
   if(navigator.geolocation) {
@@ -36,6 +37,7 @@ function getCoords(callback){
   }
 }
 
+//THIS FUNCTION SENDS THE POST REQUEST WITH THE FORM DATA AND LOCATION COORDINATES
 function submitData(){
   $.ajax({
     method: "POST",
@@ -46,6 +48,11 @@ function submitData(){
     }
   });
 }
+
+  // // To add the marker to the map, call setMap();
+  // // marker.setMap(map);
+
+//WHEN THE DOCUMENT IS READY....SHOW THE FORM AND ALLOW USER TO SUBMIT CONTENT.
 
 $(document).ready(function(){
 
@@ -67,11 +74,3 @@ $(document).ready(function(){
   })
 
 })
-
-// // To add the marker to the map, call setMap();
-// // marker.setMap(map);
-//
-// // google.maps.event.addDomListener(window, 'load', initializeMap);
-//
-//
-// //==================================== create markers
