@@ -32,16 +32,6 @@ $(document).ready(function(){
         var content = 'Error: Your browser doesn\'t support geolocation.';
       }
     }
-
-    // $.ajax({
-    //   url: '/hands',
-    //   type: 'POST',
-    //   dataType: 'json',
-    //   data: { "hand":
-    //     { "lat": latitude,
-    //     "long": longitude }
-    // }})
-
     })
 
 })
@@ -54,4 +44,33 @@ $(document).ready(function(){
 // google.maps.event.addDomListener(window, 'load', initializeMap);
 
 
-//==================================== get location coordinates from user input
+//==================================== create markers
+
+var locations = []
+
+$.ajax({
+    method: 'get',
+    url: '/hands'
+    dataType: 'json'
+    })
+    .done(function(data){
+      for(var i=0; i<data.length; i++){
+        locations.push(data[i]);
+      };
+      console.log(data);
+      var marker;
+
+      for (var i = 0; i < locations.length; i++) {
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(locations[i].lat, locations[i].long),
+          map: map
+        });
+
+      // google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      //   return function() {
+      //     infowindow.setContent(locations[i][0]);
+      //     infowindow.open(map, marker);
+      //   }
+      // })(marker, i));
+    };
+  });
