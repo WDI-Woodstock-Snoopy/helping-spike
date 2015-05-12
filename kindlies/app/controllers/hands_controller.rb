@@ -1,14 +1,18 @@
 class HandsController < ApplicationController
 
   def index
+    @hands = Hand.all
+  end
+
+  def handsapi
     hands = Hand.all
     @hands = hands
+    render json: hands
   end
 
   def new
     @hands = Hand.new
   end
-
   def create
     @hand = Hand.create( hand_params )
     hand.user = current_user

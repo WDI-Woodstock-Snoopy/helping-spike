@@ -73,5 +73,6 @@ $(document).ready(function(){
   // Send the data using post
   submitData();
   })
+  
 
 })

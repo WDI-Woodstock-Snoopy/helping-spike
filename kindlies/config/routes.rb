@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :hands
 
   get '/sign_in' => 'users#sign_in'
+  get '/api' => 'hands#handsapi'
 
   post '/hands' => 'hands#create'
   delete '/hands/:id' => 'hands#destroy'
