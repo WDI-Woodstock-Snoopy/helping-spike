@@ -1,7 +1,7 @@
 class HandsController < ApplicationController
 
   def index
-    @hands = Hand.all
+    @hands = Hand.all.order(:updated_at).reverse
   end
 
   def handsapi
