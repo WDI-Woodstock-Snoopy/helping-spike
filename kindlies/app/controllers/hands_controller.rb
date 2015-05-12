@@ -12,12 +12,12 @@ class HandsController < ApplicationController
     @hand = Hand.create( hand_params )
     # hand.user = current_user
     # hand.save
-    redirect_to "/users"
+    redirect_to "/hands"
   end
 
   def destroy
     Hand.destroy(params[:id])
-    redirect_to "/"
+    redirect_to "/hands"
   end
 
   private
