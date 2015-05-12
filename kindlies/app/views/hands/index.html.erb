@@ -41,22 +41,13 @@ $(document).ready(function(){
 
   // Send the data using post
     $.ajax({
-<<<<<<< HEAD
-    method: "POST",
-    url: "/hands",
-    data: {"hand": { title: headline}}
-  });
-  // .done(function( msg ) {
-  //   alert( "Data Saved: " + msg );
-  // });
-=======
       method: "POST",
       url: "/hands",
       data: { hand: {title: headline}, authenticity_token: token },
 
     });
 
->>>>>>> e1af341bf12bab916dcb9798d270659cd0614a90
+
   });
 
 })
