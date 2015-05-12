@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
   resources :users
+  resources :hands
 
   post '/hands' => 'hands#create'
   delete '/hands/:id' => 'hands#destroy'
 
-  get '/hands' => 'hands#index'
+  # get '/hands' => 'hands#index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
