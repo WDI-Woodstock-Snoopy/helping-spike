@@ -8,6 +8,7 @@ var longitude;
 var summary;
 var content;
 var locations = [];
+var marker;
 
 //THIS FUNCTION RETRIEVES THE LOCATION OF THE USER THAT WILL BE ASSIGNED TO THE NEW POST
 function getCoords(callback){
@@ -52,6 +53,7 @@ function submitData(){
   // // To add the marker to the map, call setMap();
   // // marker.setMap(map);
 
+
 //WHEN THE DOCUMENT IS READY....SHOW THE FORM AND ALLOW USER TO SUBMIT CONTENT.
 
 $(document).ready(function(){
@@ -70,7 +72,6 @@ $(document).ready(function(){
   token = $( "#new_hand" ).find( "input[name='authenticity_token']" ).val();
   // Send the data using post
   submitData();
-
   })
 
 })

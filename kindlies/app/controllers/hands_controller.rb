@@ -3,7 +3,6 @@ class HandsController < ApplicationController
   def index
     hands = Hand.all
     @hands = hands
-    render json: hands
   end
 
   def new

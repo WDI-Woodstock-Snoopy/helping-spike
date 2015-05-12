@@ -17,23 +17,3 @@
 
 <% end %>
 </ul>
-
-<script type="text/javascript">
-
-function getData(){
-  $.ajax({
-       method: 'get',
-       url: '/hands',
-       dataType: 'json'
-       })
-       .done(function(data){
-         for(var i=0; i<data.length; i++){
-           console.log(data);
-         }
-     });
-}
-
-  getData();
-
-
-</script>
