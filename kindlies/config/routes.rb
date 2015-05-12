@@ -3,8 +3,13 @@ Rails.application.routes.draw do
   resources :users
   resources :hands
 
+  get '/sign_in' => 'users#sign_in'
+
   post '/hands' => 'hands#create'
   delete '/hands/:id' => 'hands#destroy'
+
+  post '/session_log_in' => 'sessions#log_in_behavior'
+  delete '/session_log_out' => 'sessions#log_out_behavior'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

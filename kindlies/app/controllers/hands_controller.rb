@@ -10,8 +10,8 @@ class HandsController < ApplicationController
 
   def create
     @hand = Hand.create( hand_params )
-    # hand.user = current_user
-    # hand.save
+    hand.user = current_user
+    hand.save!
     redirect_to "/hands"
   end
 
