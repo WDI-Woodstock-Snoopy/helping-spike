@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   post '/hands' => 'hands#create'
   delete '/hands/:id' => 'hands#destroy'
 
-  # get '/hands' => 'hands#index'
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
