@@ -7,8 +7,6 @@
 <% end %> -->
 
 
-</form>
-
 <form action= "/hands" class="new_hand" id="new_hand">
   <input type="text" name="title" placeholder="Headline....">
   <input type="submit" value="Search">
@@ -41,7 +39,7 @@ $(document).ready(function(){
   // Send the data using post
     $.ajax({
     method: "POST",
-    url: "/hands",
+    url: "/hands/create",
     data: {"hand": { title: headline}}
   });
   // .done(function( msg ) {
