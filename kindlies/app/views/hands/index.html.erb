@@ -10,7 +10,8 @@
 </form>
 
 <form action= "/hands" class="new_hand" id="new_hand">
-  <input type="text" name="title" placeholder="Headline....">
+  <%= token_tag %>
+  <input type="text" name="hand[message]" placeholder="Headline....">
   <input type="submit" value="Search">
 </form>
 
@@ -18,13 +19,14 @@
 <% @hands.each do |hand| %>
 
   <li>
-    <%= hand.message %>
+    <%= hand.title %>
   </li>
 
 <% end %>
 </ul>
 
 <script type="text/javascript">
+
 $(document).ready(function(){
 
   $( "#new_hand" ).submit(function( event ) {
@@ -34,18 +36,18 @@ $(document).ready(function(){
 
   // Get some values from elements on the page:
 
-  headline = $( "#new_hand" ).find( "input[name='title']" ).val();
+  headline = $( "#new_hand" ).find( "input[name='hand[title]']" ).val();
+  token = $( "#new_hand" ).find( "input[name='authenticity_token']" ).val();
   console.log(headline);
 
   // Send the data using post
     $.ajax({
-    method: "POST",
-    url: "/hands",
-    data: { title: headline}
-  });
-  // .done(function( msg ) {
-  //   alert( "Data Saved: " + msg );
-  // });
+      method: "POST",
+      url: "/hands",
+      data: { hand: {title: headline}, authenticity_token: token },
+
+    });
+
   });
 
 })
