@@ -1,15 +1,20 @@
 <h1>Main page</h1>
 
+<<<<<<< HEAD
 <!-- <%= form_for(Hand.new, :remote => true) do |f|%>
   <%= f.label :message %>
   <%= f.text_field :message %>
   <%= f.submit %>
 <% end %> -->
 
+=======
+</form>
+>>>>>>> 26cbfe502d0cda98594ba8d2569814b1945917d4
 
 <form action= "/hands" class="new_hand" id="new_hand">
   <%= token_tag %>
-  <input type="text" name="hand[message]" placeholder="Headline....">
+  <input type="text" name="hand[title]" placeholder="Headline....">
+  <input type="text" name="hand[message]" placeholder="Act of Kindness....">
   <input type="submit" value="Search">
 </form>
 
@@ -17,7 +22,7 @@
 <% @hands.each do |hand| %>
 
   <li>
-    <%= hand.title %>
+    <%= hand.title %> : <%= hand.message%>
   </li>
 
 <% end %>
@@ -25,30 +30,78 @@
 
 <script type="text/javascript">
 
-$(document).ready(function(){
+var latitude;
+var longitude;
+var summary;
+var content;
 
+<<<<<<< HEAD
   $( "#new_hand" ).submit(function( event ) {
     event.preventDefault();
+=======
+>>>>>>> 26cbfe502d0cda98594ba8d2569814b1945917d4
 
+
+function getCoords(callback){
+
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      latitude = position.coords.latitude;
+      longitude = position.coords.longitude;
+      console.log(latitude,longitude);
+
+      callback();
+
+    }, function() {
+      handleNoGeolocation(true);
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleNoGeolocation(false);
+  }
+
+  function handleNoGeolocation(errorFlag) {
+    if (errorFlag) {
+      var content = 'Please turn on Location Services.';
+    } else {
+      var content = 'Error: Your browser doesn\'t support geolocation.';
+    }
+  }
+}
+
+function submitData(){
+  $.ajax({
+    method: "POST",
+    url: "/hands",
+    data: { hand: {title: summary, message: content, lat: latitude, long: longitude }, authenticity_token: token },
+    success: function(){
+      console.log("data added successfully!");
+    }
+  });
+}
+
+<<<<<<< HEAD
+
+=======
+$(document).ready(function(){
+
+  $( "#new_hand" ).hide();
+  getCoords(function(){
+    $( "#new_hand" ).fadeIn(500);
+>>>>>>> 26cbfe502d0cda98594ba8d2569814b1945917d4
+  });
+
+  $( "#new_hand" ).submit(function( event ) {
   // Stop form from submitting normally
   event.preventDefault();
-
   // Get some values from elements on the page:
-
-  headline = $( "#new_hand" ).find( "input[name='hand[title]']" ).val();
+  summary = $( "#new_hand" ).find( "input[name='hand[title]']" ).val();
+  content = $( "#new_hand" ).find( "input[name='hand[message]']" ).val();
   token = $( "#new_hand" ).find( "input[name='authenticity_token']" ).val();
-  console.log(headline);
-
   // Send the data using post
-    $.ajax({
-      method: "POST",
-      url: "/hands",
-      data: { hand: {title: headline}, authenticity_token: token },
+  submitData();
 
-    });
-
-
-  });
+  })
 
 })
 

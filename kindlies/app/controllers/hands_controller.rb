@@ -10,8 +10,8 @@ class HandsController < ApplicationController
 
   def create
     @hand = Hand.create( hand_params )
-    # hand.user = current_user
-    # hand.save
+    hand.user = current_user
+    hand.save!
     redirect_to "/hands"
   end
 
@@ -23,7 +23,7 @@ class HandsController < ApplicationController
   private
 
   def hand_params
-    params.require(:hand).permit(:message)
+    params.require(:hand).permit(:message, :lat, :long, :title)
   end
 
 end
