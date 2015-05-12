@@ -28,7 +28,7 @@ class HandsController < ApplicationController
   private
 
   def hand_params
-    params.require(:hand).permit(:message, :lat, :long, :title)
+    params.require(:hand).permit(:message, :lat, :long, :title, :user_id)
   end
 
 end
