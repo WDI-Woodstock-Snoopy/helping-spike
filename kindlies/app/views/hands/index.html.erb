@@ -1,8 +1,13 @@
+
 <h1>Main page</h1>
-<form class= 'nav-item' action="/session_log_out" method='post'>
+
+<!-- <form class= 'nav-item' action="/session_log_out" method='post'>
 <input type="hidden" name='_method' value='delete'>
 <input type="submit" value='Log Out'>
-</form>
+</form> -->
+<%= form_tag('/session_log_out', method: :delete) do %>
+  <%= submit_tag "Log-Out" %>
+<% end %>
 
 <form action= "/hands" class="new_hand" id="new_hand">
   <%= token_tag %>
