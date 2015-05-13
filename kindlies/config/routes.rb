@@ -8,13 +8,18 @@ Rails.application.routes.draw do
   end
 
   get '/sign_in' => 'users#sign_in'
+  post '/session_log_in' => 'sessions#log_in_behavior'
+  delete '/session_log_out' => 'sessions#log_out_behavior'
+
   get '/api' => 'hands#handsapi'
+  get '/api_new' => 'hands#handsapidate'
+  get '/api_hot' => 'hands#handsapihot'
 
   post '/hands' => 'hands#create'
   delete '/hands/:id' => 'hands#destroy'
+  put '/upvoteapi' => 'hands#upvoteapi'
 
-  post '/session_log_in' => 'sessions#log_in_behavior'
-  delete '/session_log_out' => 'sessions#log_out_behavior'
+
 
 
 

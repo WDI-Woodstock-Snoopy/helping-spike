@@ -63,6 +63,7 @@ function submitData(){
     data: { hand: {title: summary, message: content, lat: latitude, long: longitude }, authenticity_token: token },
     success: function(){
       console.log("data added successfully!");
+      getHotDeeds();
     }
   });
 }
@@ -70,10 +71,13 @@ function submitData(){
 //WHEN THE DOCUMENT IS READY....SHOW THE FORM AND ALLOW USER TO SUBMIT CONTENT.
 $(document).ready(function(){
 
+  getHotDeeds();
+
   $( "#new_hand" ).hide();
   getCoords(function(){
     $( "#new_hand" ).fadeIn(500);
   });
+
   $( "#new_hand" ).submit(function( event ) {
   // Stop form from submitting normally
   event.preventDefault();
@@ -83,7 +87,13 @@ $(document).ready(function(){
   token = $( "#new_hand" ).find( "input[name='authenticity_token']" ).val();
   // Send the data using post
   submitData();
+
+  summary = $( "#new_hand" ).find( "input[name='hand[title]']" ).val("");
+  content = $( "#new_hand" ).find( "input[name='hand[message]']" ).val("");
+
   })
+
+
 
 })
 
@@ -132,3 +142,22 @@ function initializeMap(){
 }
 
 google.maps.event.addDomListener(window, 'load', initializeMap);
+
+
+//CREATING VIEWS
+function getHotDeeds(){
+  $.ajax({
+      method: 'get',
+      url: '/api_new',
+      dataType: 'json',
+      success: function(list){
+        $("#all-acts-view").html("");
+        var el = $("ul");
+        for (var model in list){
+          var deed = list[model]
+          var view = new handsView()
+          view.render(deed);
+        }
+      }
+    })
+}
