@@ -1,6 +1,7 @@
 class HandsController < ApplicationController
 
   def index
+    authenticate!
     @hands = Hand.all
     @new = @hands.order(:updated_at).reverse
     @hot = @hands.sort_by {|hand| hand.get_likes.size}.reverse

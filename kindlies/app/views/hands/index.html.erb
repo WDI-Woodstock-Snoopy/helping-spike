@@ -1,50 +1,49 @@
+  <h1>Main page</h1>
 
-<h1>Main page</h1>
+  <%= form_tag('/session_log_out', method: :delete) do %>
+    <%= submit_tag "Log-Out" %>
+  <% end %>
 
-<!-- <form class= 'nav-item' action="/session_log_out" method='post'>
-<input type="hidden" name='_method' value='delete'>
-<input type="submit" value='Log Out'>
-</form> -->
-<%= form_tag('/session_log_out', method: :delete) do %>
-  <%= submit_tag "Log-Out" %>
-<% end %>
+  <form action="new_hand">
+    <input type="file" name="pic" accept="image/*">
+    <input type="submit">
+  </form>
 
-<form action= "/hands" class="new_hand" id="new_hand">
-  <%= token_tag %>
-  <div class="row">
-  <div class="u-full-width">
-    <label for="headline">Headline</label>
-    <input id="headline" type="text" name="hand[title]" placeholder="Headline....">
-  </div>
-  <div class="u-full-width">
-    <label for="actOfKindness">Describe the kind act</label>
-    <input id="actOfKindness" type="text" name="hand[message]" placeholder="Act of Kindness....">
-  </div>
-  </div>
-  <input type="submit" value="Share the Love!">
-</form>
+  <form action= "/hands" class="new_hand" id="new_hand">
+    <%= token_tag %>
+    <div class="row">
+    <div class="u-full-width">
+      <label for="headline">Headline</label>
+      <input id="headline" type="text" name="hand[title]" placeholder="Headline....">
+    </div>
+    <div class="u-full-width">
+      <label for="actOfKindness">Describe the kind act</label>
+      <input id="actOfKindness" type="text" name="hand[message]" placeholder="Act of Kindness....">
+    </div>
+    </div>
+    <input type="submit" value="Share the Love!">
+  </form>
 
-<h3> Hot </h3>
-<ul>
-<% @hot.each do |hand| %>
-  <li>
-    <%= hand.title %> : <%= hand.message%>
-    <%=link_to "upvote", like_hand_path(hand), method: :put %>
-    <%= hand.score %>
-  </li>
+  <h3> Hot </h3>
+  <ul>
+  <% @hot.each do |hand| %>
+    <li>
+      <%= hand.title %> : <%= hand.message%>
+      <%=link_to "upvote", like_hand_path(hand), method: :put %>
+      <%= hand.score %>
+    </li>
 
-<% end %>
-</ul>
-
+  <% end %>
+  </ul>
 
 
-<h3> New </h3>
-<ul>
-<% @new.each do |hand| %>
+  <h3> New </h3>
+  <ul>
+  <% @new.each do |hand| %>
 
-  <li>
-    <%= hand.title %> : <%= hand.message%>
-  </li>
+    <li>
+      <%= hand.title %> : <%= hand.message%>
+    </li>
 
-<% end %>
-</ul>
+  <% end %>
+  </ul>

@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate!
-    redirect_to "/users/new" unless current_user
+    redirect_to "/sign_in" unless current_user
   end
 
 end
