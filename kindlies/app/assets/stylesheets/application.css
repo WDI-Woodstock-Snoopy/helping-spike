@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+@import 'normalize.scss';
+@import 'skeleton.scss';
+
+*{
+  font-family: sans-serif;
+}
