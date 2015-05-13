@@ -88,7 +88,34 @@ $(document).ready(function(){
 
 })
 
+//AJAX REQUEST TO CREATE MARKERS
+function renderMarkers(mapName){
+  $.ajax({
+      method: 'get',
+      url: '/api',
+      dataType: 'json',
+      })
+    .done(function(data){
+      console.log(data)
+
+      for (var i = 0; i < data.length; i++) {
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(data[i].lat, data[i].long),
+          map: mapName
+        });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    };
+  });
+}
+
 //CREATE MAP THAT IS CENTERED ON Chicago
+
 var map;
 
 function initializeMap(){
@@ -98,30 +125,11 @@ function initializeMap(){
     center: defaultCenter,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
-  map = new google.maps.Map(document.getElementById('map'), defaultOptions);
+  // mainMap = new google.maps.Map(document.getElementById("mainMap"), defaultOptions);
+  smallMap = new google.maps.Map(document.getElementById("smallMap"), defaultOptions);
 
-  $.ajax({
-      method: 'get',
-      url: '/api',
-      dataType: 'json',
-      })
-      .done(function(data){
-        console.log(data)
-
-        for (var i = 0; i < data.length; i++) {
-          marker = new google.maps.Marker({
-            position: new google.maps.LatLng(data[i].lat, data[i].long),
-            map: map
-          });
-
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-          return function() {
-            infowindow.setContent(locations[i][0]);
-            infowindow.open(map, marker);
-          }
-        })(marker, i));
-      };
-    });
+  // renderMarkers(mainMap);
+  renderMarkers(smallMap);
 }
 
 google.maps.event.addDomListener(window, 'load', initializeMap);
