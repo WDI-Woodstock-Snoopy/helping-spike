@@ -8,7 +8,7 @@ class Hand < ActiveRecord::Base
     end
 
     def score
-      self.get_upvotes.size
+      self.get_upvotes.length
     end
 
 end

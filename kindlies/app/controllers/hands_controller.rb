@@ -3,7 +3,7 @@ class HandsController < ApplicationController
   def index
     @hands = Hand.all
     @new = @hands.order(:updated_at).reverse
-
+    @hot = @hands.sort {|hand| hand.get_likes.size}
   end
 
   def handsapi
@@ -22,6 +22,15 @@ class HandsController < ApplicationController
     redirect_to "/hands"
   end
 
+  def edit
+    @hand = Hand.find(params[:id])
+  end
+  def update
+    hand = Hand.find(params[:id])
+    hand.update! (hand_params)
+    redirect_to "/hands"
+  end
+
   def destroy
     Hand.destroy(params[:id])
     redirect_to "/hands"
@@ -36,7 +45,7 @@ class HandsController < ApplicationController
   private
 
   def hand_params
-    params.require(:hand).permit(:message, :lat, :long, :title, :user_id, :score)
+    params.require(:hand).permit(:message, :lat, :long, :title, :user_id, :score, :get_likes)
   end
 
 end
