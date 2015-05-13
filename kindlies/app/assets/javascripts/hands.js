@@ -1,21 +1,4 @@
 
-//=======================================MODELS
-var handModel = Backbone.Model.extend({
-  initialize: function(){
-    console.log('hey, a file is here!')
-  }
-});
-
-//=======================================COLLECTIONS
-var cardList = Backbone.Collection({
-  model: cardModel,
-  url: '/api/cards',
-  initialize: function() {
-    console.log("Collection is a go!");
-  }
-});
-
-
 
 
 //DECLARES VARIABLES FOR LOCATION AND FOR AJAX....NEED TO NAMESPACE
