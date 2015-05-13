@@ -4,6 +4,7 @@ class Hand < ActiveRecord::Base
 
     belongs_to :user
     acts_as_votable
+
     def to_s
       self.title
     end
