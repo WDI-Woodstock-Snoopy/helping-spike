@@ -6,15 +6,11 @@
 
   <div id="map" style="width: 500px; height: 400px;"></div>
 
-  <form action="new_hand">
-    <input type="file" name="pic" accept="image/*">
-    <input type="submit">
-  </form>
-
   <form action= "/hands" class="new_hand" id="new_hand">
     <%= token_tag %>
     <div class="row">
     <div class="u-full-width">
+    <%= file_field_tag :image%><br>
       <label for="headline">Headline</label>
       <input id="headline" type="text" name="hand[title]" placeholder="Headline....">
     </div>
