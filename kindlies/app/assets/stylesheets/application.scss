@@ -19,3 +19,13 @@
 *{
   font-family: sans-serif;
 }
+
+.map, #smallMap{
+  width: inherit;
+  padding: 0px;
+  margin: 0px auto;
+}
+
+#smallMap{
+    height: 200px;
+  }

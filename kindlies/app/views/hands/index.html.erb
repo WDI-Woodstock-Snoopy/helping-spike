@@ -1,23 +1,23 @@
-<h1>Main page</h1>
+<div class="container">
+<div class="row">
+  <div class="one-third column"> <h4>Main page</h4> </div>
+  <div class="one-third column">
+    <h4 id="greetings"> <%= @user.username %> </h4>
+  </div>
 
-<div>
-  <h3 id="greetings"> <%= @user.username %> </h3>
+  <div class="one-third column">
+  <%= form_tag('/session_log_out', method: :delete) do %>
+    <%= submit_tag "Log-Out" %>
+  <% end %>
+  </div>
+
 </div>
 
-<div class="container">
-
   <div class="row">
-    <div class="eight columns">
-
-      <%= form_tag('/session_log_out', method: :delete) do %>
-        <%= submit_tag "Log-Out" %>
-      <% end %>
-
-      <form action= "/hands" class="new_hand" id="new_hand">
+    <div class="u-full-width">
+      <form action= "/hands" enctype="multipart/form-data" class="new_hand" id="new_hand">
         <%= token_tag %>
-        <div class="row">
         <div class="u-full-width">
-        <%= file_field_tag :image%><br>
           <label for="headline">Headline</label>
           <input id="headline" type="text" name="hand[title]" placeholder="Headline....">
         </div>
@@ -25,9 +25,10 @@
           <label for="actOfKindness">Describe the kind act</label>
           <input id="actOfKindness" type="text" name="hand[message]" placeholder="Act of Kindness....">
         </div>
-        </div>
-        <input type="submit" value="Share the Love!">
+        <input class="button-primary" type="submit" value="Share the Love!">
       </form>
+    </div>
+    <div class="u-full-width">
 
       <h3> Hot </h3>
       <ul>
@@ -53,14 +54,8 @@
       <% end %>
       </ul>
       </div>
-
-      <div class="four columns">
-        <div class= "map" id="smallMap" style="width: 400px; height: 400px;"></div>
-
-      </div>
-
-  </div>
-
+      <div class= "map" id="smallMap"></div>
+    </div>
 </div>
 
 <script>
