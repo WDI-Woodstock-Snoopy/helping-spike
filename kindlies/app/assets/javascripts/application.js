@@ -17,6 +17,7 @@
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
+//= require_tree ./that-directory-gaby-made-to-keep-us-offline
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree ../../../vendor/assets/javascripts/
