@@ -3,7 +3,7 @@ class HandsController < ApplicationController
   def index
     @hands = Hand.all
     @new = @hands.order(:updated_at).reverse
-    @hot = @hands.sort {|hand| hand.get_likes.size}
+    @hot = @hands.sort_by {|hand| hand.get_likes.size}.reverse
   end
 
   def handsapi
