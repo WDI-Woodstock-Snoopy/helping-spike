@@ -13,11 +13,12 @@
         <%= submit_tag "Log-Out" %>
       <% end %>
 
-      <form action= "/hands" class="new_hand" id="new_hand">
+      <form action= "/hands" enctype="multipart/form-data" class="new_hand" id="new_hand">
         <%= token_tag %>
         <div class="row">
         <div class="u-full-width">
-        <%= file_field_tag :image%><br>
+        <!-- <%= file_field_tag :image%><br> -->
+          <input id="file" type="file" name="hand[image]">
           <label for="headline">Headline</label>
           <input id="headline" type="text" name="hand[title]" placeholder="Headline....">
         </div>
@@ -47,6 +48,7 @@
       <% @new.each do |hand| %>
 
         <li>
+
           <%= hand.title %> : <%= hand.message%>
         </li>
 
