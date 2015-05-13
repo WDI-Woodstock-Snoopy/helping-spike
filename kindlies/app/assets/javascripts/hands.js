@@ -85,6 +85,7 @@ $(document).ready(function(){
   summary = $( "#new_hand" ).find( "input[name='hand[title]']" ).val();
   content = $( "#new_hand" ).find( "input[name='hand[message]']" ).val();
   token = $( "#new_hand" ).find( "input[name='authenticity_token']" ).val();
+  image = $("#new_hand").find("input[name='hand[image]']").val();
   // Send the data using post
   submitData();
 

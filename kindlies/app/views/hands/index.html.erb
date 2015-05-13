@@ -18,6 +18,7 @@
       <form action= "/hands" enctype="multipart/form-data" class="new_hand" id="new_hand">
         <%= token_tag %>
         <div class="u-full-width">
+          <input id="file" type="file" name="hand[image]">
           <label for="headline">Headline</label>
           <input id="headline" type="text" name="hand[title]" placeholder="Headline....">
         </div>
@@ -60,6 +61,7 @@
       <ul>
       <% @hot.each do |hand| %>
         <li>
+
           <%= hand.title %> : <%= hand.message%>
           <%=link_to "upvote", like_hand_path(hand), method: :put %>
           <%= hand.score %>
