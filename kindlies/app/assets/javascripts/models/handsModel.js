@@ -7,8 +7,8 @@ var handModel = Backbone.Model.extend({
 });
 
 //=======================================COLLECTIONS
-var cardList = Backbone.Collection({
-  model: cardModel,
+var handList = Backbone.Collection({
+  model: handModel,
   url: '/handsapi',
   initialize: function() {
     console.log("Collection is a go!");
