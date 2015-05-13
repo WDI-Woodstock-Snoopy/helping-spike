@@ -1,10 +1,20 @@
 <h1>Main page</h1>
-
+<form class= 'nav-item' action="/session_log_out" method='post'>
+<input type="hidden" name='_method' value='delete'>
+<input type="submit" value='Log Out'>
+</form>
 
 <form action= "/hands" class="new_hand" id="new_hand">
   <%= token_tag %>
-  <input type="text" name="hand[title]" placeholder="Headline....">
-  <input type="text" name="hand[message]" placeholder="Act of Kindness....">
+  <div class="row">
+  <div class="u-full-width">
+    <label for="headline">Headline</label>
+    <input id="headline" type="text" name="hand[title]" placeholder="Headline....">
+  </div>
+  <div class="u-full-width">
+    <label for="actOfKindness">Describe the kind act</label>
+    <input id="actOfKindness" type="text" name="hand[message]" placeholder="Act of Kindness....">
+  </div>
   <input type="submit" value="Share the Love!">
 </form>
 
