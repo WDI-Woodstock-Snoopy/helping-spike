@@ -1,4 +1,3 @@
-var NewHandsView = Backbone.View.extend({
 
   tagName: "li",
   className: "new",

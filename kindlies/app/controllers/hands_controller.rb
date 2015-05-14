@@ -16,22 +16,30 @@ class HandsController < ApplicationController
     render json: hands
   end
 
+  def handsapidate
+    @hands = Hand.all
+    @new = @hands.order(:updated_at).reverse
+    render json: @new
+  end
+
+  # def upvoteapi
+  #   #id = params[:id]
+  #   id = 75
+  #   @hand = Hand.find(id)
+  #   like_hand_path(@hand)
+  #   render json: {message: "we did it", id: id}
+  # end
+
   def handsapihot
     @hands = Hand.all
     @hot = @hands.sort_by {|hand| hand.get_likes.size}.reverse
     render json: @hot.to_json(methods: :score)
   end
 
-  def handsapinew
-    @hands = Hand.all
-    @new = @hands.order(:updated_at).reverse
-    # @ranked = @hands.sort_by {|hand| hand.get_likes.size}.reverse
-    render json: @new.to_json(methods: :score)
-  end
-
   def new
     @hands = Hand.new
   end
+
   def create
     hand = Hand.create( hand_params )
     hand.user = current_user

@@ -27,14 +27,21 @@ function getNewDeeds(){
       url: '/api_new',
       dataType: 'json',
       success: function(list){
+<<<<<<< HEAD
         console.log(list)
         $("#new-acts-view").html("");
         var $el = $("#stage");
         for (var model in list){
           var deed = list[model]
           var view = new NewHandsView();
+=======
+        $("#all-acts-view").html("");
+        var el = $("#all-acts-view");
+        for (var model in list){
+          var deed = list[model]
+          var view = new NewHandsView()
+>>>>>>> parent of d461071... renders new list with upvote buttongit push
           view.render(deed);
-          $el.append(view.$el);
         }
       }
     })
@@ -47,7 +54,7 @@ function getHotDeeds(){
       url: '/api_hot',
       dataType: 'json',
       success: function(list){
-        // console.log(list)
+        console.log(list)
         $("#hot-acts-view").html("");
         var $el = $("#stage");
         for (var model in list){

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   delete '/session_log_out' => 'sessions#log_out_behavior'
 
   get '/api' => 'hands#handsapi'
-  get '/api_new' => 'hands#handsapinew'
+  get '/api_new' => 'hands#handsapidate'
   get '/api_hot' => 'hands#handsapihot'
 
   post '/hands' => 'hands#create'
