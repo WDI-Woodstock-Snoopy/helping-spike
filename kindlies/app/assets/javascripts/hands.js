@@ -37,10 +37,10 @@ function getNewDeeds(){
       success: function(list){
         console.log(list)
         $("#new-acts-view").html("");
-        var $el = $("#new-acts-view");
+        var $el = $("#stage");
         for (var model in list){
           var deed = list[model]
-          var view = new HotHandsView();
+          var view = new NewHandsView();
           view.render(deed);
           $el.append(view.$el);
         }
@@ -57,7 +57,7 @@ function getHotDeeds(){
       success: function(list){
         // console.log(list)
         $("#hot-acts-view").html("");
-        var $el = $("#hot-acts-view");
+        var $el = $("#stage");
         for (var model in list){
           var deed = list[model]
           var view = new HotHandsView();

@@ -1,1 +1,1 @@
-// hi gaby!
+$('#display-hot').click()
