@@ -6,7 +6,6 @@ class HandsController < ApplicationController
     @new = @hands.order(:updated_at).reverse
     @hot = @hands.sort_by {|hand| hand.get_likes.size}.reverse
     @user = current_user
-
   end
 
   def handsapi
@@ -63,7 +62,6 @@ class HandsController < ApplicationController
   private
 
   def hand_params
-    #data = {id: params[:id], image: params[:file], }
     params.require(:hand).permit(:message, :lat, :long, :title, :user_id, :score, :get_likes, :image)
   end
 
