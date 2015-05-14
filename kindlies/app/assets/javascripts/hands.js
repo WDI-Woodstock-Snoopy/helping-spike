@@ -1,24 +1,32 @@
+//WHEN THE DOCUMENT IS READY....SHOW THE FORM AND ALLOW USER TO SUBMIT CONTENT.
+$(document).ready(function(){
+
+  getNewDeeds();
+  getHotDeeds();
+  heyYall();
+
+  $( "#new_hand" ).hide();
+  getCoords(function(){
+    $( "#new_hand" ).fadeIn(500);
+  });
+
+  $( "#new_hand" ).submit(function( event ) {
+  // Stop form from submitting normally
+  event.preventDefault();
+  // Get some values from elements on the page:
+  summary = $( "#new_hand" ).find( "input[name='hand[title]']" ).val();
+  content = $( "#new_hand" ).find( "input[name='hand[message]']" ).val();
+  token = $( "#new_hand" ).find( "input[name='authenticity_token']" ).val();
+  image = $("#new_hand").find("input[name='hand[image]']").val();
+  // Send the data using post
+  submitData();
+
+  summary = $( "#new_hand" ).find( "input[name='hand[title]']" ).val("");
+  content = $( "#new_hand" ).find( "input[name='hand[message]']" ).val("");
+  })
+})
+
 //*****VIEW FUNCTIONS*****
-
-//DECLARES TIME/DATE VARS
-var today = new Date();
-var hourNow = today.getHours();
-var greeting;
-var display = $('#greetings')
-
-//DISPLAYS TIME-BASED GREETING TO CURRENT_USER
-function heyYall(){
-  if (hourNow > 18){
-    greeting = 'Good Evening, ';
-  } else if (hourNow > 12){
-    greeting = 'Good Afternoon, ';
-  } else if (hourNow > 0){
-    greeting = 'Good Morning, ';
-  } else {
-    greeting = 'Welcome, ';
-  }
-  display.prepend(greeting);
-}
 
 //CREATING VIEWS
 function getNewDeeds(){
@@ -27,21 +35,14 @@ function getNewDeeds(){
       url: '/api_new',
       dataType: 'json',
       success: function(list){
-<<<<<<< HEAD
         console.log(list)
         $("#new-acts-view").html("");
-        var $el = $("#stage");
+        var $el = $("#new-acts-view");
         for (var model in list){
           var deed = list[model]
-          var view = new NewHandsView();
-=======
-        $("#all-acts-view").html("");
-        var el = $("#all-acts-view");
-        for (var model in list){
-          var deed = list[model]
-          var view = new NewHandsView()
->>>>>>> parent of d461071... renders new list with upvote buttongit push
+          var view = new HotHandsView();
           view.render(deed);
+          $el.append(view.$el);
         }
       }
     })
@@ -54,9 +55,9 @@ function getHotDeeds(){
       url: '/api_hot',
       dataType: 'json',
       success: function(list){
-        console.log(list)
+        // console.log(list)
         $("#hot-acts-view").html("");
-        var $el = $("#stage");
+        var $el = $("#hot-acts-view");
         for (var model in list){
           var deed = list[model]
           var view = new HotHandsView();
@@ -108,39 +109,14 @@ function submitData(){
   $.ajax({
     method: "POST",
     url: "/hands",
-    data: { hand: {title: summary, message: content, lat: latitude, long: longitude}, authenticity_token: token },
+    data: { hand: {title: summary, message: content, lat: latitude, long: longitude }, authenticity_token: token },
     success: function(){
       console.log("data added successfully!");
+      getHotDeeds();
     }
   });
-  getHotDeeds();
-  getNewDeeds();
 }
 
-
-  var reader = new FileReader();
-  var dataToUpload = {};
-//WHEN THE DOCUMENT IS READY....SHOW THE FORM AND ALLOW USER TO SUBMIT CONTENT.
-  $(document).ready(function(){
-
-  $('#file').on('focusout', function() {
-
-    reader.onload = function (event) {
-      try {
-        console.log(event.target.result);
-          dataToUpload.file = event.target.result;
-      } catch (ex) {
-          throw new Error("Some shit went down");
-      }
-    }
-
-    var file = document.getElementById('file');
-
-    reader.readAsDataURL(file.files[0]);
-
-  });
-
-//=================================
 
 //AJAX REQUEST TO CREATE MARKERS
 function renderMarkers(mapName){
