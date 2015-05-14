@@ -21,6 +21,12 @@ class UsersController < ApplicationController
     redirect_to "/users/#{ user.id }"
   end
 
+  def updatescore
+    @user = User.find(params[:id])
+    @userscore
+    render json: @userscore.to_json(methods: :score)
+  end
+
   def show
     @user = User.find(params[:id])
   end
@@ -34,6 +40,10 @@ class UsersController < ApplicationController
     authenticate!
     @user = current_user
     @hand = Hand.new
+  end
+
+  def map_page
+    @map = Hand.all
   end
 
 

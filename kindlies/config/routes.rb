@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   delete '/hands/:id' => 'hands#destroy'
   post  '/hands/:id/like' => 'hands#upvote'
 
+  get '/map' => 'users#map_page'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

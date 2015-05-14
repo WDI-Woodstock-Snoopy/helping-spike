@@ -1,6 +1,8 @@
 var reader = new FileReader();
 var dataToUpload = {};
 var imageFile;
+var currentViewNew;
+var currentViewHot;
 
 //WHEN THE DOCUMENT IS READY....SHOW THE FORM AND ALLOW USER TO SUBMIT CONTENT.
 $(document).ready(function(){
@@ -24,16 +26,24 @@ $(document).ready(function(){
 
 //=======================================
   getNewDeeds();
-  // getHotDeeds();
+  getHotDeeds();
 
   $("#new-tab").click(function(){
     $("#hand-stage").empty()
     getNewDeeds();
+    currentViewNew = true;
+    currentViewHot = false;
+    console.log(currentViewNew);
+    console.log(currentViewHot);
   })
 
   $("#hot-tab").click(function(){
     $("#hand-stage").empty()
     getHotDeeds();
+    currentViewNew = false;
+    currentViewHot = true;
+    console.log(currentViewNew);
+    console.log(currentViewHot);
   })
 
   $( "#new_hand" ).hide();
@@ -66,6 +76,8 @@ function getNewDeeds(){
       url: '/api_new',
       dataType: 'json',
       success: function(list){
+        currentViewNew = true;
+        currentViewHot = false;
         console.log(list)
         $("#hand-stage").html("");
         var $el = $("#hand-stage");
@@ -86,7 +98,8 @@ function getHotDeeds(){
       url: '/api_hot',
       dataType: 'json',
       success: function(list){
-        // console.log(list)
+        currentViewNew = false;
+        currentViewHot = true;
         $("#hand-stage").html("");
         var $el = $("#hand-stage");
         for (var model in list){
@@ -107,6 +120,7 @@ var longitude;
 var summary;
 var content;
 var marker;
+var locations;
 
 //THIS FUNCTION RETRIEVES THE LOCATION OF THE USER THAT WILL BE ASSIGNED TO THE NEW POST
 function getCoords(callback){
@@ -142,8 +156,14 @@ function submitData(){
     data: { hand: {title: summary, message: content, lat: latitude, long: longitude, image: dataToUpload.file }, authenticity_token: token },
     success: function(){
       console.log("data added successfully!");
-      getHotDeeds();
-      getNewDeeds();
+      if (currentViewNew == false && currentViewHot == true){
+        getHotDeeds();
+      }
+      else{
+        getNewDeeds();
+
+      }
+      console.log(currentViewNew)
     }
   });
 }
@@ -165,10 +185,15 @@ function renderMarkers(mapName){
           map: mapName
         });
 
+      var contentString = "hello my name is gaby !!!!!!";
+      infowindow = new google.maps.InfoWindow({
+          content: contentString
+      });
+
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
+          infowindow.setContent(contentString);
+          infowindow.open(mapName, marker);
         }
       })(marker, i));
     };
@@ -191,6 +216,7 @@ function initializeMap(){
 
   // renderMarkers(mainMap);
   renderMarkers(smallMap);
+
 }
 
 google.maps.event.addDomListener(window, 'load', initializeMap);
