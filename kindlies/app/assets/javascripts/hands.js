@@ -2,7 +2,17 @@
 $(document).ready(function(){
 
   getNewDeeds();
-  getHotDeeds();
+  // getHotDeeds();
+
+  $("#new-tab").click(function(){
+    $("#hand-stage").empty()
+    getNewDeeds();
+  })
+
+  $("#hot-tab").click(function(){
+    $("#hand-stage").empty()
+    getHotDeeds();
+  })
 
   $( "#new_hand" ).hide();
   getCoords(function(){
@@ -35,8 +45,8 @@ function getNewDeeds(){
       dataType: 'json',
       success: function(list){
         console.log(list)
-        $("#new-acts-view").html("");
-        var $el = $("#new-acts-view");
+        $("#hand-stage").html("");
+        var $el = $("#hand-stage");
         for (var model in list){
           var deed = list[model]
           var view = new NewHandsView();
@@ -55,8 +65,8 @@ function getHotDeeds(){
       dataType: 'json',
       success: function(list){
         // console.log(list)
-        $("#hot-acts-view").html("");
-        var $el = $("#hot-acts-view");
+        $("#hand-stage").html("");
+        var $el = $("#hand-stage");
         for (var model in list){
           var deed = list[model]
           var view = new HotHandsView();
@@ -66,7 +76,6 @@ function getHotDeeds(){
       }
     })
 }
-
 
 //*****MAP FUNCTIONS*****
 
@@ -112,6 +121,7 @@ function submitData(){
     success: function(){
       console.log("data added successfully!");
       getHotDeeds();
+      getNewDeeds();
     }
   });
 }
