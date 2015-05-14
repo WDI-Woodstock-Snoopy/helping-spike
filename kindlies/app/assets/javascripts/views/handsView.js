@@ -1,14 +1,14 @@
-var NewHandsView = Backbone.View.extend({
-
-  tagName: "li",
-  className: "",
-  template: _.template($("#hand-item").html()),
-  render: function(data) {
-    var html = this.template(data);
-    this.$el.html(html);
-  }
-
-});
+// var NewHandsView = Backbone.View.extend({
+//
+//   tagName: "li",
+//   className: "",
+//   template: _.template($("#hand-item").html()),
+//   render: function(data) {
+//     var html = this.template(data);
+//     this.$el.html(html);
+//   }
+//
+// });
 
 
 var HotHandsView = Backbone.View.extend({

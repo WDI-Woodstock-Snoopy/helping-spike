@@ -55,12 +55,14 @@ function getNewDeeds(){
       url: '/api_new',
       dataType: 'json',
       success: function(list){
-        $("#all-acts-view").html("");
-        var el = $("#all-acts-view");
+        console.log(list)
+        $("#new-acts-view").html("");
+        var $el = $("#new-acts-view");
         for (var model in list){
           var deed = list[model]
-          var view = new NewHandsView()
+          var view = new HotHandsView();
           view.render(deed);
+          $el.append(view.$el);
         }
       }
     })
@@ -73,7 +75,7 @@ function getHotDeeds(){
       url: '/api_hot',
       dataType: 'json',
       success: function(list){
-        console.log(list)
+        // console.log(list)
         $("#hot-acts-view").html("");
         var $el = $("#hot-acts-view");
         for (var model in list){
