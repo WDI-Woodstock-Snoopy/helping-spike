@@ -168,6 +168,7 @@ function submitData(){
         getNewDeeds();
 
       }
+      console.log("test");
       console.log(currentViewNew)
     }
   });
