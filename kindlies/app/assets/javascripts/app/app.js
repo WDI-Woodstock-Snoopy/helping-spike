@@ -23,6 +23,8 @@ $(document).ready(function(){
 
   summary = $( "#new_hand" ).find( "input[name='hand[title]']" ).val("");
   content = $( "#new_hand" ).find( "input[name='hand[message]']" ).val("");
+  getNewDeeds();
+  getHotDeeds();
   })
 
   //ANIMATIONS
@@ -34,14 +36,13 @@ $(document).ready(function(){
     });
   }
   clickHot();
+
   function clickNew(){
     $('#display-new').click(function() {
       console.log("new");
       $('#stage').empty();
       getNewDeeds();
-
     });
   }
   clickNew();
-
 })

@@ -84,9 +84,10 @@ function submitData(){
     data: { hand: {title: summary, message: content, lat: latitude, long: longitude }, authenticity_token: token },
     success: function(){
       console.log("data added successfully!");
-      getHotDeeds();
     }
   });
+  getHotDeeds();
+  getNewDeeds();
 }
 
 
