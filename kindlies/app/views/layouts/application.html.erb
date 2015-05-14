@@ -9,11 +9,8 @@
 
 
   <script type='text/template' id='hot-hand-item'>
-    <%%= title %>
-  </br>
-    <%%= message %>
-  </br>
-    - <%%= score %> <button type="button" class='vote'>Upvote</button>
+    <%%= title %>: <%%= message %> - <%%= score %>
+    <button type="button" class='vote'>Upvote</button>
   </script>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
