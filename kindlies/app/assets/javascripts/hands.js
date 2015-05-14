@@ -6,6 +6,8 @@ var currentViewHot;
 
 //WHEN THE DOCUMENT IS READY....SHOW THE FORM AND ALLOW USER TO SUBMIT CONTENT.
 $(document).ready(function(){
+  getCoords();
+  currentViewNew = true;
 
   $('#file').on('focusout', function() {
 
@@ -24,36 +26,24 @@ $(document).ready(function(){
   });
   imageFile = dataToUpload.file;
 
-//=======================================
-  getCoords();
-
   $( "#new_hand" ).hide();
 
   $("#share-something-form-toggle").click(function(){
     $( "#new_hand" ).slideToggle(500);
   })
 
-
-
   getNewDeeds();
-  getHotDeeds();
 
   $("#new-tab").click(function(){
-    $("#hand-stage").empty()
     getNewDeeds();
     currentViewNew = true;
-    currentViewHot = false;
     console.log(currentViewNew);
-    console.log(currentViewHot);
   })
 
   $("#hot-tab").click(function(){
-    $("#hand-stage").empty()
     getHotDeeds();
     currentViewNew = false;
-    currentViewHot = true;
     console.log(currentViewNew);
-    console.log(currentViewHot);
   })
 
   $( "#new_hand" ).submit(function( event ) {
@@ -81,10 +71,8 @@ function getNewDeeds(){
       url: '/api_new',
       dataType: 'json',
       success: function(list){
-        currentViewNew = true;
-        currentViewHot = false;
         console.log(list)
-        $("#hand-stage").html("");
+        $("#hand-stage").empty()
         var $el = $("#hand-stage");
         for (var model in list){
           var deed = list[model]
@@ -103,9 +91,7 @@ function getHotDeeds(){
       url: '/api_hot',
       dataType: 'json',
       success: function(list){
-        currentViewNew = false;
-        currentViewHot = true;
-        $("#hand-stage").html("");
+        $("#hand-stage").empty()
         var $el = $("#hand-stage");
         for (var model in list){
           var deed = list[model]
@@ -161,16 +147,14 @@ function submitData(){
     data: { hand: {title: summary, message: content, lat: latitude, long: longitude, image: imageData }, authenticity_token: token },
     success: function(){
       console.log("data added successfully!");
-      if (currentViewNew == false && currentViewHot == true){
-        getHotDeeds();
-      }
-      else{
-        getNewDeeds();
-
-      }
-      console.log(currentViewNew)
     }
   });
+  if(currentViewNew==false){
+    getHotDeeds();
+  }
+  else {
+    getNewDeeds();
+  }
 }
 
 
