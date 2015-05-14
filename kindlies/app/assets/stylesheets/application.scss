@@ -34,3 +34,11 @@
 #smallMap{
     height: 200px;
   }
+
+.map, #largeMap{
+    width: 960px;
+    height: 650px;
+    padding: 0px;
+    margin: 0px;
+    clear: both;
+}
