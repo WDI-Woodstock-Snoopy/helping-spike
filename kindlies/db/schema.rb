@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150513192355) do
     t.datetime "updated_at", null: false
     t.string   "lat"
     t.string   "long"
-    t.string   "image"
+    t.text     "image"
   end
 
   add_index "hands", ["user_id"], name: "index_hands_on_user_id", using: :btree

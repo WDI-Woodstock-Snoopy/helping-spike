@@ -4,8 +4,8 @@ class Hand < ActiveRecord::Base
 
     belongs_to :user
     acts_as_votable
-    mount_uploader :image, ImageUploader
-    
+    # mount_uploader :image, ImageUploader
+
     def to_s
       self.title
     end

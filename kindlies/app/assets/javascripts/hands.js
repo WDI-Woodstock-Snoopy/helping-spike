@@ -150,10 +150,12 @@ function getCoords(callback){
 
 //THIS FUNCTION SENDS THE POST REQUEST WITH THE FORM DATA AND LOCATION COORDINATES
 function submitData(){
+  var imageData = dataToUpload.file;
   $.ajax({
-    method: "POST",
+    method: "post",
     url: "/hands",
-    data: { hand: {title: summary, message: content, lat: latitude, long: longitude, image: dataToUpload.file }, authenticity_token: token },
+    dataType: 'json',
+    data: { hand: {title: summary, message: content, lat: latitude, long: longitude, image: imageData }, authenticity_token: token },
     success: function(){
       console.log("data added successfully!");
       if (currentViewNew == false && currentViewHot == true){
