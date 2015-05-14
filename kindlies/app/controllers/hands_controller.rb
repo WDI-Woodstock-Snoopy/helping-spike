@@ -63,7 +63,8 @@ class HandsController < ApplicationController
   private
 
   def hand_params
-    params.require(:hand).permit(:message, :lat, :long, :title, :user_id, :score, :get_likes, :image)
+    #data = {id: params[:id], image: params[:file], }
+    params.require(:hand).permit(:message, :lat, :long, :title, :user_id, :score, :get_likes, :image => {})
   end
 
 end
