@@ -20,11 +20,15 @@
   font-family: sans-serif;
   list-style-type: none;
 }
+#sidebar{
+  margin: 0px;
 
+}
 .map, #smallMap{
   width: inherit;
   padding: 0px;
-  margin: 0px auto;
+  margin: 0px;
+  clear: both;
 }
 
 #smallMap{

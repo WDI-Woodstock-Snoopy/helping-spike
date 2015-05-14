@@ -30,7 +30,7 @@
   </div>
 
   <div class="row" id="view-tabs" >
-    <div class="one column">
+    <div class="two columns">
       <h4 id="display-hot"> Hot </h4>
     </div>
     <div class="one column">
@@ -39,7 +39,10 @@
     <HR>
   </div>
   <div class="row">
-    <div class="u-full-width" id="stage">
+    <div class="eight columns" id="stage">
+    </div>
+    <div class="four columns" id="sidebar">
+      <div class= "map" id="smallMap"></div>
     </div>
   </div>
 
@@ -66,31 +69,5 @@
 
       <% end %>
       </ul> -->
-
-
-      <div class= "map" id="smallMap"></div>
-
     </div>
 </div>
-<script>
-//DECLARES TIME/DATE VARS
-var today = new Date();
-var hourNow = today.getHours();
-var greeting;
-var display = $('#greetings')
-
-//DISPLAYS TIME-BASED GREETING TO CURRENT_USER
-function heyYall(){
-  if (hourNow > 18){
-    greeting = 'Good Evening, ';
-  } else if (hourNow > 12){
-    greeting = 'Good Afternoon, ';
-  } else if (hourNow > 0){
-    greeting = 'Good Morning, ';
-  } else {
-    greeting = 'Welcome, ';
-  }
-  display.prepend(greeting);
-}
-
-</script>

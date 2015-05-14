@@ -4,8 +4,11 @@
   <title>Kindlies</title>
 
   <script type='text/template' id='hand-item'>
-    <%%= title %>: <%%= message %> - <%%= score %>
-    <button type="button" class='vote'>Upvote</button>
+    <%%= title %>
+  </br>
+  <%%= message %>
+  </br>
+  <%%= score %> <button type="button" class='vote'>Upvote</button>
   </script>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -20,5 +23,26 @@
 <%= yield %>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script>
+//DECLARES TIME/DATE VARS
+var today = new Date();
+var hourNow = today.getHours();
+var greeting;
+var display = $('#greetings')
+
+//DISPLAYS TIME-BASED GREETING TO CURRENT_USER
+function heyYall(){
+  if (hourNow > 18){
+    greeting = 'Good Evening, ';
+  } else if (hourNow > 12){
+    greeting = 'Good Afternoon, ';
+  } else if (hourNow > 0){
+    greeting = 'Good Morning, ';
+  } else {
+    greeting = 'Welcome, ';
+  }
+  display.prepend(greeting);
+}
+</script>
 </body>
 </html>
