@@ -16,19 +16,11 @@ class HandsController < ApplicationController
     render json: hands
   end
 
-  def handsapidate
+  def handsapinew
     @hands = Hand.all
     @new = @hands.order(:updated_at).reverse
-    render json: @new
+    render json: @new.to_json(methods: :score)
   end
-
-  # def upvoteapi
-  #   #id = params[:id]
-  #   id = 75
-  #   @hand = Hand.find(id)
-  #   like_hand_path(@hand)
-  #   render json: {message: "we did it", id: id}
-  # end
 
   def handsapihot
     @hands = Hand.all

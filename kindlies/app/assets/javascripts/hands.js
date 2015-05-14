@@ -3,7 +3,6 @@ $(document).ready(function(){
 
   getNewDeeds();
   getHotDeeds();
-  heyYall();
 
   $( "#new_hand" ).hide();
   getCoords(function(){
