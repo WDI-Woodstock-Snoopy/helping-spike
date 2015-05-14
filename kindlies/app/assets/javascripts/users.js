@@ -14,12 +14,42 @@ function initializeMap(){
     center: defaultCenter,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
+  // mainMap = new google.maps.Map(document.getElementById("mainMap"), defaultOptions);
   largeMap = new google.maps.Map(document.getElementById("largeMap"), defaultOptions);
-  smallMap = new google.maps.Map(document.getElementById("smallMap"), defaultOptions);
 
+  // renderMarkers(mainMap);
   renderMarkers(largeMap);
-  renderMarkers(smallMap);
-
 }
 
-google.maps.event.addDomListener(window, 'load', initializeMap);  
+google.maps.event.addDomListener(window, 'load', initializeMap);
+
+
+function renderMarkers(mapName){
+  $.ajax({
+      method: 'get',
+      url: '/api',
+      dataType: 'json',
+      })
+    .done(function(data){
+      console.log(data)
+
+      for (var i = 0; i < data.length; i++) {
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(data[i].lat, data[i].long),
+          map: mapName
+        });
+
+      var contentString = "hello my name is gaby !!!!!!";
+      infowindow = new google.maps.InfoWindow({
+          content: contentString
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(contentString);
+          infowindow.open(mapName, marker);
+        }
+      })(marker, i));
+    };
+  });
+}
