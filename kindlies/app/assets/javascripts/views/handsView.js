@@ -22,8 +22,7 @@ var NewHandsView = Backbone.View.extend({
       dataType: 'json',
       success: function(data){
         that.$el.fadeOut(1000);
-        that.$el.css({backgroundColor: 'lightblue'})
-        getHotDeeds()
+        getNewDeeds()
       }
     })
   }
