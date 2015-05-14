@@ -2,7 +2,7 @@
 <div class="row">
   <div class="one-third column"> <h4>Main page</h4> </div>
   <div class="one-third column">
-    <h4 id="greetings"> <%= @user.username %> </h4>
+    <h5 id="greetings"> <%= @user.username %> </h5>
   </div>
 
   <div class="one-third column">
@@ -27,15 +27,17 @@
         <input id="submit-hand" class="button-primary" type="submit" value="Share the Love!">
       </form>
     </div>
+  </div>
 
-    <div class="u-full-width">
-
-
-      <!-- <script type='text/template' id='new-acts'>
-      <li class = 'items'> <%%= name %> </li>
-      </script> -->
-
+  <div class="row">
+    <div class="one-half column">
+      <h3> Hot </h3>
+    </div>
+    <div class="one-half column">
       <h3> New </h3>
+    </div>
+  </div>
+
       <div class="u-full-width" id = "new-acts-view">
       </div>
       <!-- <ul>
@@ -55,7 +57,6 @@
     </script> -->
 
 
-      <h3> Hot </h3>
       <div class="u-full-width" id="hot-acts-view">
       </div>
       <ul>
@@ -75,7 +76,6 @@
 
     </div>
 </div>
-
 <script>
 //DECLARES TIME/DATE VARS
 var today = new Date();
@@ -97,5 +97,4 @@ function heyYall(){
   display.prepend(greeting);
 }
 
-heyYall()
 </script>
