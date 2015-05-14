@@ -3,7 +3,6 @@ $(document).ready(function(){
 
   getNewDeeds();
   getHotDeeds();
-  heyYall();
 
   $( "#new_hand" ).hide();
   getCoords(function(){
@@ -20,6 +19,7 @@ $(document).ready(function(){
   image = $("#new_hand").find("input[name='hand[image]']").val();
   // Send the data using post
   submitData();
+  getNewDeeds();
 
   summary = $( "#new_hand" ).find( "input[name='hand[title]']" ).val("");
   content = $( "#new_hand" ).find( "input[name='hand[message]']" ).val("");
@@ -47,6 +47,8 @@ function heyYall(){
   }
   display.prepend(greeting);
 }
+heyYall();
+
 
 //CREATING VIEWS
 function getNewDeeds(){
@@ -75,7 +77,7 @@ function getHotDeeds(){
       url: '/api_hot',
       dataType: 'json',
       success: function(list){
-        // console.log(list)
+        console.log(list)
         $("#hot-acts-view").html("");
         var $el = $("#hot-acts-view");
         for (var model in list){
