@@ -1,20 +1,23 @@
 //*****VIEW FUNCTIONS*****
 
-//ANIMATIONS
-function clickHot(){
-  $('#display-hot').click(function() {
-    console.log("hot");
-    $('#stage').empty();
-    getHotDeeds();
-  });
-}
-function clickNew(){
-  $('#display-new').click(function() {
-    console.log("new");
-    $('#stage').empty();
-    getNewDeeds();
+//DECLARES TIME/DATE VARS
+var today = new Date();
+var hourNow = today.getHours();
+var greeting;
+var display = $('#greetings')
 
-  });
+//DISPLAYS TIME-BASED GREETING TO CURRENT_USER
+function heyYall(){
+  if (hourNow > 18){
+    greeting = 'Good Evening, ';
+  } else if (hourNow > 12){
+    greeting = 'Good Afternoon, ';
+  } else if (hourNow > 0){
+    greeting = 'Good Morning, ';
+  } else {
+    greeting = 'Welcome, ';
+  }
+  display.prepend(greeting);
 }
 
 //CREATING VIEWS
@@ -98,14 +101,39 @@ function submitData(){
   $.ajax({
     method: "POST",
     url: "/hands",
-    data: { hand: {title: summary, message: content, lat: latitude, long: longitude }, authenticity_token: token },
+    data: { hand: {title: summary, message: content, lat: latitude, long: longitude}, authenticity_token: token },
     success: function(){
       console.log("data added successfully!");
-      getHotDeeds();
     }
   });
+  getHotDeeds();
+  getNewDeeds();
 }
 
+
+  var reader = new FileReader();
+  var dataToUpload = {};
+//WHEN THE DOCUMENT IS READY....SHOW THE FORM AND ALLOW USER TO SUBMIT CONTENT.
+  $(document).ready(function(){
+
+  $('#file').on('focusout', function() {
+
+    reader.onload = function (event) {
+      try {
+        console.log(event.target.result);
+          dataToUpload.file = event.target.result;
+      } catch (ex) {
+          throw new Error("Some shit went down");
+      }
+    }
+
+    var file = document.getElementById('file');
+
+    reader.readAsDataURL(file.files[0]);
+
+  });
+
+//=================================
 
 //AJAX REQUEST TO CREATE MARKERS
 function renderMarkers(mapName){

@@ -4,8 +4,6 @@ $(document).ready(function(){
   getNewDeeds();
   getHotDeeds();
   heyYall();
-  clickHot();
-  clickNew();
 
   $( "#new_hand" ).hide();
   getCoords(function(){
@@ -25,5 +23,26 @@ $(document).ready(function(){
 
   summary = $( "#new_hand" ).find( "input[name='hand[title]']" ).val("");
   content = $( "#new_hand" ).find( "input[name='hand[message]']" ).val("");
+  getNewDeeds();
+  getHotDeeds();
   })
+
+  //ANIMATIONS
+  function clickHot(){
+    $('#display-hot').click(function() {
+      console.log("hot");
+      $('#stage').empty();
+      getHotDeeds();
+    });
+  }
+  clickHot();
+
+  function clickNew(){
+    $('#display-new').click(function() {
+      console.log("new");
+      $('#stage').empty();
+      getNewDeeds();
+    });
+  }
+  clickNew();
 })
