@@ -1,6 +1,7 @@
 //WHEN THE DOCUMENT IS READY....SHOW THE FORM AND ALLOW USER TO SUBMIT CONTENT.
 var currentViewNew;
 var currentViewHot;
+
 $(document).ready(function(){
 
 //=======================================

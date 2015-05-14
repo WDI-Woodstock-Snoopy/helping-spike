@@ -42,6 +42,10 @@ class UsersController < ApplicationController
     @hand = Hand.new
   end
 
+  def map_page
+    @map = Hand.all
+  end
+
 
   private
 
