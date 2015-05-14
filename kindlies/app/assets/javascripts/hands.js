@@ -146,18 +146,40 @@ google.maps.event.addDomListener(window, 'load', initializeMap);
 
 
 //CREATING VIEWS
-function getHotDeeds(){
+function getNewDeeds(){
   $.ajax({
       method: 'get',
       url: '/api_new',
       dataType: 'json',
       success: function(list){
         $("#all-acts-view").html("");
-        var el = $("ul");
+        var el = $("#all-acts-view");
         for (var model in list){
           var deed = list[model]
-          var view = new handsView()
+          var view = new HandsView()
           view.render(deed);
+        }
+      }
+    })
+}
+
+
+function getHotDeeds(){
+  var token = $('#token').data('token');
+  $.ajax({
+      method: 'get',
+      url: '/api_hot',
+      dataType: 'json',
+      data: {authenticity_token: token},
+      success: function(list){
+        console.log(list)
+        $("#hot-acts-view").html("");
+        var $el = $("#hot-acts-view");
+        for (var model in list){
+          var deed = list[model]
+          var view = new HotHandsView();
+          view.render(deed);
+          $el.append(view.$el);
         }
       }
     })

@@ -7,6 +7,12 @@
     <%%= title %>: <%%= message %>
   </script>
 
+
+  <script type='text/template' id='hot-hand-item'>
+    <%%= title %>: <%%= message %> - <%%= score %>
+    <button type="button" class='vote'>Upvote</button>
+  </script>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -14,6 +20,7 @@
 </head>
 <body>
 
+<span id='token' data-token="<%= form_authenticity_token %>"></span>
 
 <%= yield %>
 

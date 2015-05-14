@@ -9,11 +9,12 @@ class SessionsController < ApplicationController
     else
       redirect_to "/sign_in"
     end
+  end
 
-    #logout behavior
-    def log_out_behavior
-      session[:user_id] = nil
-      redirect_to "/sign_in"
-    end
-end
+  #logout behavior
+  def log_out_behavior
+    session[:user_id] = nil
+    redirect_to "/sign_in"
+  end
+
 end

@@ -17,10 +17,7 @@ Rails.application.routes.draw do
 
   post '/hands' => 'hands#create'
   delete '/hands/:id' => 'hands#destroy'
-  put '/upvoteapi' => 'hands#upvoteapi'
-
-
-
+  post  '/hands/:id/like' => 'hands#upvote'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
