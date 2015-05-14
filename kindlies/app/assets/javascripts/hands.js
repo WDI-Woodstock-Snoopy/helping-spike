@@ -40,7 +40,7 @@ function getNewDeeds(){
         var $el = $("#new-acts-view");
         for (var model in list){
           var deed = list[model]
-          var view = new HotHandsView();
+          var view = new NewHandsView();
           view.render(deed);
           $el.append(view.$el);
         }
