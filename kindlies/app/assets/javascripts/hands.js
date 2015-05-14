@@ -88,6 +88,7 @@ var longitude;
 var summary;
 var content;
 var marker;
+var locations;
 
 //THIS FUNCTION RETRIEVES THE LOCATION OF THE USER THAT WILL BE ASSIGNED TO THE NEW POST
 function getCoords(callback){
@@ -146,10 +147,15 @@ function renderMarkers(mapName){
           map: mapName
         });
 
+      var contentString = "hello my name is gaby !!!!!!";
+      infowindow = new google.maps.InfoWindow({
+          content: contentString
+      });
+
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
+          infowindow.setContent(contentString);
+          infowindow.open(mapName, marker);
         }
       })(marker, i));
     };
@@ -172,6 +178,7 @@ function initializeMap(){
 
   // renderMarkers(mainMap);
   renderMarkers(smallMap);
+
 }
 
 google.maps.event.addDomListener(window, 'load', initializeMap);
