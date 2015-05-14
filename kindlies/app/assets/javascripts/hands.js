@@ -60,16 +60,36 @@ function submitData(){
   $.ajax({
     method: "POST",
     url: "/hands",
-    data: { hand: {title: summary, message: content, lat: latitude, long: longitude }, authenticity_token: token },
+    data: { hand: {title: summary, message: content, lat: latitude, long: longitude}, authenticity_token: token },
     success: function(){
       console.log("data added successfully!");
     }
   });
 }
 
+  var reader = new FileReader();
+  var dataToUpload = {};
 //WHEN THE DOCUMENT IS READY....SHOW THE FORM AND ALLOW USER TO SUBMIT CONTENT.
-$(document).ready(function(){
+  $(document).ready(function(){
 
+  $('#file').on('focusout', function() {
+
+    reader.onload = function (event) {
+      try {
+        console.log(event.target.result);
+          dataToUpload.file = event.target.result;
+      } catch (ex) {
+          throw new Error("Some shit went down");
+      }
+    }
+
+    var file = document.getElementById('file');
+
+    reader.readAsDataURL(file.files[0]);
+
+  });
+
+//=================================
   $( "#new_hand" ).hide();
   getCoords(function(){
     $( "#new_hand" ).fadeIn(500);
