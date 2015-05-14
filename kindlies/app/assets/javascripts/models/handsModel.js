@@ -5,12 +5,3 @@ var handModel = Backbone.Model.extend({
     console.log('hey, a file is here!')
   }
 });
-
-//=======================================COLLECTIONS
-var handList = Backbone.Collection({
-  model: handModel,
-  url: '/handsapi',
-  initialize: function() {
-    console.log("Collection is a go!");
-  }
-});

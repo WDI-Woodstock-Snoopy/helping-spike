@@ -8,14 +8,16 @@ Rails.application.routes.draw do
   end
 
   get '/sign_in' => 'users#sign_in'
-  get '/api' => 'hands#handsapi'
-
-  post '/hands' => 'hands#create'
-  delete '/hands/:id' => 'hands#destroy'
-
   post '/session_log_in' => 'sessions#log_in_behavior'
   delete '/session_log_out' => 'sessions#log_out_behavior'
 
+  get '/api' => 'hands#handsapi'
+  get '/api_new' => 'hands#handsapinew'
+  get '/api_hot' => 'hands#handsapihot'
+
+  post '/hands' => 'hands#create'
+  delete '/hands/:id' => 'hands#destroy'
+  post  '/hands/:id/like' => 'hands#upvote'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

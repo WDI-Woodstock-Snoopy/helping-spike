@@ -1,26 +1,64 @@
+//*****VIEW FUNCTIONS*****
 
-//DECLARES TIME/DATE VARS
-var today = new Date();
-var hourNow = today.getHours();
-var greeting;
-var display = $('#greetings')
+//ANIMATIONS
+function clickHot(){
+  $('#display-hot').click(function() {
+    console.log("hot");
+    $('#stage').empty();
+    getHotDeeds();
+  });
+}
+function clickNew(){
+  $('#display-new').click(function() {
+    console.log("new");
+    $('#stage').empty();
+    getNewDeeds();
 
-//DISPLAYS TIME-BASED GREETING TO CURRENT_USER
-function heyYall(){
-  if (hourNow > 18){
-    greeting = 'Good Evening, ';
-  } else if (hourNow > 12){
-    greeting = 'Good Afternoon, ';
-  } else if (hourNow > 0){
-    greeting = 'Good Morning, ';
-  } else {
-    greeting = 'Welcome, ';
-  }
-  display.prepend(greeting);
+  });
 }
 
-heyYall()
+//CREATING VIEWS
+function getNewDeeds(){
+  $.ajax({
+      method: 'get',
+      url: '/api_new',
+      dataType: 'json',
+      success: function(list){
+        console.log(list)
+        $("#new-acts-view").html("");
+        var $el = $("#stage");
+        for (var model in list){
+          var deed = list[model]
+          var view = new NewHandsView();
+          view.render(deed);
+          $el.append(view.$el);
+        }
+      }
+    })
+}
 
+function getHotDeeds(){
+
+  $.ajax({
+      method: 'get',
+      url: '/api_hot',
+      dataType: 'json',
+      success: function(list){
+        // console.log(list)
+        $("#hot-acts-view").html("");
+        var $el = $("#stage");
+        for (var model in list){
+          var deed = list[model]
+          var view = new HotHandsView();
+          view.render(deed);
+          $el.append(view.$el);
+        }
+      }
+    })
+}
+
+
+//*****MAP FUNCTIONS*****
 
 //DECLARES VARIABLES FOR LOCATION AND FOR AJAX....NEED TO NAMESPACE
 var latitude;
@@ -63,9 +101,11 @@ function submitData(){
     data: { hand: {title: summary, message: content, lat: latitude, long: longitude}, authenticity_token: token },
     success: function(){
       console.log("data added successfully!");
+      getHotDeeds();
     }
   });
 }
+
 
   var reader = new FileReader();
   var dataToUpload = {};
@@ -90,23 +130,6 @@ function submitData(){
   });
 
 //=================================
-  $( "#new_hand" ).hide();
-  getCoords(function(){
-    $( "#new_hand" ).fadeIn(500);
-  });
-  $( "#new_hand" ).submit(function( event ) {
-  // Stop form from submitting normally
-  event.preventDefault();
-  // Get some values from elements on the page:
-  summary = $( "#new_hand" ).find( "input[name='hand[title]']" ).val();
-  content = $( "#new_hand" ).find( "input[name='hand[message]']" ).val();
-  token = $( "#new_hand" ).find( "input[name='authenticity_token']" ).val();
-  image = $("#new_hand").find("input[name='hand[image]']").val();
-  // Send the data using post
-  submitData();
-  })
-
-})
 
 //AJAX REQUEST TO CREATE MARKERS
 function renderMarkers(mapName){
