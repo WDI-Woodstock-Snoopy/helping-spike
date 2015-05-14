@@ -1,22 +1,5 @@
 //*****VIEW FUNCTIONS*****
 
-//ANIMATIONS
-function clickHot(){
-  $('#display-hot').click(function() {
-    console.log("hot");
-    $('#stage').empty();
-    getHotDeeds();
-  });
-}
-function clickNew(){
-  $('#display-new').click(function() {
-    console.log("new");
-    $('#stage').empty();
-    getNewDeeds();
-
-  });
-}
-
 //CREATING VIEWS
 function getNewDeeds(){
   $.ajax({
