@@ -2,7 +2,7 @@
 <div class="row" id="header">
   <div class="one-third column"> <h4>Main page</h4> </div>
   <div class="one-third column">
-    <h5 id="greetings"> <%= @user.username %> </h5>
+    <h4 id="greetings"> <%= @user.username %> </h4>
   </div>
 
   <div class="one-third column">
@@ -27,8 +27,8 @@
         <input id="submit-hand" class="button-primary" type="submit" value="Share the Love!">
       </form>
     </div>
-  </div>
 
+<<<<<<< HEAD
   <div class="row" id="view-tabs" >
     <div class="two columns">
       <h4 id="display-hot"> Hot </h4>
@@ -44,6 +44,17 @@
   <div class= "map" id="smallMap"></div>
 </div>
       <!-- <div class="u-full-width" id = "new-acts-view">
+=======
+    <div class="u-full-width">
+
+
+      <!-- <script type='text/template' id='new-acts'>
+      <li class = 'items'> <%%= name %> </li>
+      </script> -->
+
+      <h3> New </h3>
+      <div class="u-full-width" id = "new-acts-view">
+>>>>>>> parent of 16c5c61... clean up index
       </div>
       <div class="u-full-width" id="hot-acts-view">
       </div> -->
@@ -60,6 +71,21 @@
       <!-- <ul>
       <% @new.each do |hand| %>
 
+<<<<<<< HEAD
+=======
+      <!-- templates -->
+
+    <!-- <script type='text/template' id='hot-acts'>
+      <%%= name %> party of <%%= size %>
+    </script> -->
+
+
+      <h3> Hot </h3>
+      <div class="u-full-width" id="hot-acts-view">
+      </div>
+      <ul>
+      <!-- <% @hot.each do |hand| %>
+>>>>>>> parent of 16c5c61... clean up index
         <li>
           <%= hand.title %> : <%= hand.message%>
         </li>
@@ -68,3 +94,30 @@
       </ul> -->
     </div>
 </div>
+<<<<<<< HEAD
+=======
+
+<script>
+//DECLARES TIME/DATE VARS
+var today = new Date();
+var hourNow = today.getHours();
+var greeting;
+var display = $('#greetings')
+
+//DISPLAYS TIME-BASED GREETING TO CURRENT_USER
+function heyYall(){
+  if (hourNow > 18){
+    greeting = 'Good Evening, ';
+  } else if (hourNow > 12){
+    greeting = 'Good Afternoon, ';
+  } else if (hourNow > 0){
+    greeting = 'Good Morning, ';
+  } else {
+    greeting = 'Welcome, ';
+  }
+  display.prepend(greeting);
+}
+
+heyYall()
+</script>
+>>>>>>> parent of 16c5c61... clean up index
