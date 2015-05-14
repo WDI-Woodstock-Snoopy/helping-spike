@@ -21,6 +21,12 @@ class UsersController < ApplicationController
     redirect_to "/users/#{ user.id }"
   end
 
+  def updatescore
+    @user = User.find(params[:id])
+    @userscore
+    render json: @userscore.to_json(methods: :score)
+  end
+
   def show
     @user = User.find(params[:id])
   end

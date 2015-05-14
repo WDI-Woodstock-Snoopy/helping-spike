@@ -1,20 +1,28 @@
 //WHEN THE DOCUMENT IS READY....SHOW THE FORM AND ALLOW USER TO SUBMIT CONTENT.
+var currentViewNew;
+var currentViewHot;
 $(document).ready(function(){
-
-
 
 //=======================================
   getNewDeeds();
-  // getHotDeeds();
+  getHotDeeds();
 
   $("#new-tab").click(function(){
     $("#hand-stage").empty()
     getNewDeeds();
+    currentViewNew = true;
+    currentViewHot = false;
+    console.log(currentViewNew);
+    console.log(currentViewHot);
   })
 
   $("#hot-tab").click(function(){
     $("#hand-stage").empty()
     getHotDeeds();
+    currentViewNew = false;
+    currentViewHot = true;
+    console.log(currentViewNew);
+    console.log(currentViewHot);
   })
 
   $( "#new_hand" ).hide();
@@ -47,6 +55,8 @@ function getNewDeeds(){
       url: '/api_new',
       dataType: 'json',
       success: function(list){
+        currentViewNew = true;
+        currentViewHot = false;
         console.log(list)
         $("#hand-stage").html("");
         var $el = $("#hand-stage");
@@ -67,7 +77,8 @@ function getHotDeeds(){
       url: '/api_hot',
       dataType: 'json',
       success: function(list){
-        // console.log(list)
+        currentViewNew = false;
+        currentViewHot = true;
         $("#hand-stage").html("");
         var $el = $("#hand-stage");
         for (var model in list){
@@ -124,8 +135,14 @@ function submitData(){
     data: { hand: {title: summary, message: content, lat: latitude, long: longitude }, authenticity_token: token },
     success: function(){
       console.log("data added successfully!");
-      getHotDeeds();
-      getNewDeeds();
+      if (currentViewNew == false && currentViewHot == true){
+        getHotDeeds();
+      }
+      else{
+        getNewDeeds();
+
+      }
+      console.log(currentViewNew)
     }
   });
 }
