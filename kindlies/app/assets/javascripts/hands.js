@@ -25,6 +25,16 @@ $(document).ready(function(){
   imageFile = dataToUpload.file;
 
 //=======================================
+  getCoords();
+
+  $( "#new_hand" ).hide();
+
+  $("#share-something-form-toggle").click(function(){
+    $( "#new_hand" ).slideToggle(500);
+  })
+
+
+
   getNewDeeds();
   getHotDeeds();
 
@@ -45,11 +55,6 @@ $(document).ready(function(){
     console.log(currentViewNew);
     console.log(currentViewHot);
   })
-
-  $( "#new_hand" ).hide();
-  getCoords(function(){
-    $( "#new_hand" ).fadeIn(500);
-  });
 
   $( "#new_hand" ).submit(function( event ) {
   // Stop form from submitting normally
@@ -123,14 +128,12 @@ var marker;
 var locations;
 
 //THIS FUNCTION RETRIEVES THE LOCATION OF THE USER THAT WILL BE ASSIGNED TO THE NEW POST
-function getCoords(callback){
+function getCoords(){
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       latitude = position.coords.latitude;
       longitude = position.coords.longitude;
       console.log(latitude,longitude);
-
-      callback();
 
     }, function() {
       handleNoGeolocation(true);

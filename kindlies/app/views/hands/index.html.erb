@@ -1,20 +1,20 @@
 <div class="container">
   <div class="top">
-<div class="row" id="header">
-  <div class="one-third column"> <h5>Main page</h5> </div>
-  <div class="one-third column">
-    <h5 id="greetings"> <%= @user.username %> </h5>
-  </div>
+    <div class="row" id="header">
+      <div class="one-third column"> <h5>Main page</h5> </div>
+      <div class="one-third column">
+        <h5 id="greetings"> <%= @user.username %> </h5>
+    </div>
 
-  <div class="one-third column">
-  <%= form_tag('/session_log_out', method: :delete) do %>
-    <%= submit_tag "Log-Out" %>
-  <% end %>
-  </div>
+    <div class="one-third column">
+      <%= form_tag('/session_log_out', method: :delete) do %>
+        <%= submit_tag "Log-Out" %>
+      <% end %>
+    </div>
 </div>
-
-  <div class="row" id="new-act-form">
-    <div class="u-full-width">
+<label id="share-something-form-toggle" for="new-act-form">Share something kind</label>
+<div class="row" id="new-act-form">
+    <div class="u-full-width"
       <form action= "/hands" enctype="multipart/form-data" class="new_hand" id="new_hand">
         <%= token_tag %>
         <div class="u-full-width">
@@ -31,6 +31,7 @@
     </div>
   </div>
 </div>
+
   <div class="row" id="view-tabs" >
     <div class="two columns">
       <h4 id="hot-tab"> Hot </h4>
