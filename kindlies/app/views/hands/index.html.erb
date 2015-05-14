@@ -27,3 +27,78 @@
         <input id="submit-hand" class="button-primary" type="submit" value="Share the Love!">
       </form>
     </div>
+<<<<<<< HEAD
+=======
+
+    <div class="u-full-width">
+
+
+      <!-- <script type='text/template' id='new-acts'>
+      <li class = 'items'> <%%= name %> </li>
+      </script> -->
+
+      <h3> New </h3>
+      <div class="u-full-width" id = "new-acts-view">
+      </div>
+      <!-- <ul>
+      <% @new.each do |hand| %>
+
+        <li>
+          <%= hand.title %> : <%= hand.message%>
+        </li>
+
+      <% end %>
+      </ul> -->
+
+      <!-- templates -->
+
+    <!-- <script type='text/template' id='hot-acts'>
+      <%%= name %> party of <%%= size %>
+    </script> -->
+
+
+      <h3> Hot </h3>
+      <div class="u-full-width" id="hot-acts-view">
+      </div>
+      <ul>
+      <!-- <% @hot.each do |hand| %>
+        <li>
+          <%= hand.title %> : <%= hand.message%>
+          <%=link_to "upvote", like_hand_path(hand), method: :put %>
+          <%= hand.score %>
+        </li>
+
+      <% end %> -->
+      </ul>
+      </div>
+
+
+      <div class= "map" id="smallMap"></div>
+
+    </div>
+</div>
+
+<script>
+//DECLARES TIME/DATE VARS
+var today = new Date();
+var hourNow = today.getHours();
+var greeting;
+var display = $('#greetings')
+
+//DISPLAYS TIME-BASED GREETING TO CURRENT_USER
+function heyYall(){
+  if (hourNow > 18){
+    greeting = 'Good Evening, ';
+  } else if (hourNow > 12){
+    greeting = 'Good Afternoon, ';
+  } else if (hourNow > 0){
+    greeting = 'Good Morning, ';
+  } else {
+    greeting = 'Welcome, ';
+  }
+  display.prepend(greeting);
+}
+
+heyYall()
+</script>
+>>>>>>> parent of 16c5c61... clean up index
