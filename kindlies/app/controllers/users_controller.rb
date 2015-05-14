@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   end
 
   def map_page
-    @map = Hand.all
+    @user = current_user
   end
 
 
