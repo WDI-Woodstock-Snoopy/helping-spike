@@ -30,7 +30,7 @@ $(document).ready(function(){
   $( "#new_hand" ).hide();
 
   $("#share-something-form-toggle").click(function(){
-    $( "#new_hand" ).fadeIn(500);
+    $( "#new_hand" ).slideToggle(500);
   })
 
 
