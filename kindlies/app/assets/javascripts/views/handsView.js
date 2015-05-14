@@ -22,7 +22,7 @@ var NewHandsView = Backbone.View.extend({
       dataType: 'json',
       success: function(data){
         that.$el.fadeOut(1000);
-        getNewDeeds()
+        getNewDeeds();
       }
     })
   }
@@ -52,7 +52,7 @@ var HotHandsView = Backbone.View.extend({
       dataType: 'json',
       success: function(data){
         that.$el.fadeOut(1000);
-        getHotDeeds()
+        getHotDeeds();
       }
     })
   }
