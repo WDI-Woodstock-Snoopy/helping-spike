@@ -4,6 +4,8 @@ $(document).ready(function(){
   getNewDeeds();
   getHotDeeds();
   heyYall();
+  clickHot();
+  clickNew();
 
   $( "#new_hand" ).hide();
   getCoords(function(){
