@@ -1,6 +1,9 @@
 //WHEN THE DOCUMENT IS READY....SHOW THE FORM AND ALLOW USER TO SUBMIT CONTENT.
 $(document).ready(function(){
 
+
+
+//=======================================
   getNewDeeds();
   // getHotDeeds();
 
