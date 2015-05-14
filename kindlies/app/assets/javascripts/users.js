@@ -14,11 +14,12 @@ function initializeMap(){
     center: defaultCenter,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
-  // mainMap = new google.maps.Map(document.getElementById("mainMap"), defaultOptions);
   largeMap = new google.maps.Map(document.getElementById("largeMap"), defaultOptions);
+  smallMap = new google.maps.Map(document.getElementById("smallMap"), defaultOptions);
 
-  // renderMarkers(mainMap);
   renderMarkers(largeMap);
+  renderMarkers(smallMap);
+
 }
 
-google.maps.event.addDomListener(window, 'load', initializeMap);
+google.maps.event.addDomListener(window, 'load', initializeMap);  
