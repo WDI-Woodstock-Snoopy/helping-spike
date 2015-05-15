@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(version: 20150513192355) do
     t.string   "message"
     t.integer  "user_id"
     t.integer  "rank"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string   "lat"
     t.string   "long"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.text     "image"
   end
 
