@@ -71,7 +71,7 @@ function getNewDeeds(){
       url: '/api_new',
       dataType: 'json',
       success: function(list){
-        console.log(list)
+        // console.log(list)
         $("#hand-stage").empty()
         var $el = $("#hand-stage");
         for (var model in list){
@@ -79,10 +79,34 @@ function getNewDeeds(){
           var view = new NewHandsView();
           view.render(deed);
           $el.append(view.$el);
+          }
         }
-      }
     })
-}
+  }
+
+// markerView = function markerView(stuffToPaint) {
+//   this.$el = $('<div>');
+//   this.model = stuffToPaint.model;
+// }
+//
+// markerView.prototype.render = function render(){
+//   var handMarker = this.model;
+//   this.$el;
+//   this.$el.addClass('handMarker');
+//   var markerHtml = '';
+//   markerHtml += "<h3>" + handMarker.get('title') + "</h3>";
+//   markerHtml += "<p>";
+//   markerHtml += handMarker.get('message') + "<br>";
+//   this.$el.html(markerHtml);
+// }
+// var info = '<div class="info-window">' +
+//                       '<p class="artist"><strong>Artist: </strong>' +  artPiece.get('first_name') + ' '+ artPiece.get('last_name') + '</p>' +
+//                        '<p class="type"><strong>Type: </strong>' + artPiece.get('type') + '</p>' +
+//                        '<p class="medium"><strong>Medium: </strong>' + artPiece.get('medium') + '</p>' +
+//                        '<p class="description"><strong>Description: </strong>' + artPiece.get('description') + '</p>' +
+//                        '<p class="location"><strong>Location: </strong>' + artPiece.get('location') + '</p>' +
+//                        '<p class="address"><strong>Address: </strong>' + artPiece.get('address') + '</p>' +
+//                        '</div>';
 
 function getHotDeeds(){
 
@@ -112,6 +136,7 @@ var summary;
 var content;
 var marker;
 var locations;
+var contentString;
 
 //THIS FUNCTION RETRIEVES THE LOCATION OF THE USER THAT WILL BE ASSIGNED TO THE NEW POST
 function getCoords(){
@@ -147,6 +172,7 @@ function submitData(){
     data: { hand: {title: summary, message: content, lat: latitude, long: longitude, image: imageData }, authenticity_token: token },
     success: function(){
       console.log("data added successfully!");
+
     }
   });
   if(currentViewNew==false){
@@ -156,6 +182,7 @@ function submitData(){
     getNewDeeds();
   }
 }
+
 
 
 //AJAX REQUEST TO CREATE MARKERS
@@ -174,12 +201,12 @@ function renderMarkers(mapName){
           map: mapName
         });
 
-      var contentString = "hello my name is gaby !!!!!!";
       infowindow = new google.maps.InfoWindow({
           content: contentString
       });
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        var contentString = '<div class="info-window">' + "<p>" + data[i].title + "</br>" + data[i].message + "</p>" +'</div>';
         return function() {
           infowindow.setContent(contentString);
           infowindow.open(mapName, marker);
