@@ -8,7 +8,7 @@
       <%= form_tag('/session_log_in', method: :post) do %>
         <%= label_tag :username %>
         <%= text_field_tag :username %>
-        <%= label_tag :password %>
+        <%= label_tag 'password' %>
         <%= password_field_tag :password %>
         </br>
         <%= submit_tag "Sign-In" %>
@@ -25,7 +25,7 @@
         <%= f.text_field :username, :required => true%>
       </div>
       <div class="upform">
-        <%= f.label :password%>
+        <%= f.label :password, nil, class: 'txt'%>
         <%= f.password_field :password, :required => true%>
         <%= f.submit %>
       </div>
@@ -36,23 +36,31 @@
 
   <script type="text/javascript">
 
-   $('#password').on('keyup', function(){
-     var field = $(this);
-     if (field.val().length < 7){
-       $(this).css({backgroundColor: 'red'});
-     } else {
-       $(this).css({backgroundColor: 'green'});
-     }
-   });
+     $('#password').on('keyup', function(){
+       var field = $(this);
+       if (field.val().length < 6){
+         $(this).css({border: 'solid 1px red'});
+       } else {
+         $(this).css({border: 'solid 1px rgb(0, 204, 0)'});
+       }
+     });
 
-   $('#user_password').on('keyup', function(){
-     var field = $(this);
-     if (field.val().length < 7){
-       $(this).css({backgroundColor: 'red'});
-     } else {
-       $(this).css({backgroundColor: 'green'});
-     }
-   });
+
+     $('#user_password').on('keyup', function(){
+       var field = $(this);
+       if (field.val().length < 6){
+         $(this).css({border: 'solid 1px red'});
+         $('.txt').text("password: min 7 characters");
+       } else {
+         $(this).css({border: 'solid 1px rgb(0, 204, 0)'});
+       }
+     });
+
+   $('.sign-upform').hide();
+
+     $('.linktosignup').on('click', function(){
+       $('.sign-upform').slideToggle( "slow", function() {});
+      });
 
   </script>
 </body>
