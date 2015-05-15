@@ -84,30 +84,6 @@ function getNewDeeds(){
     })
   }
 
-// markerView = function markerView(stuffToPaint) {
-//   this.$el = $('<div>');
-//   this.model = stuffToPaint.model;
-// }
-//
-// markerView.prototype.render = function render(){
-//   var handMarker = this.model;
-//   this.$el;
-//   this.$el.addClass('handMarker');
-//   var markerHtml = '';
-//   markerHtml += "<h3>" + handMarker.get('title') + "</h3>";
-//   markerHtml += "<p>";
-//   markerHtml += handMarker.get('message') + "<br>";
-//   this.$el.html(markerHtml);
-// }
-// var info = '<div class="info-window">' +
-//                       '<p class="artist"><strong>Artist: </strong>' +  artPiece.get('first_name') + ' '+ artPiece.get('last_name') + '</p>' +
-//                        '<p class="type"><strong>Type: </strong>' + artPiece.get('type') + '</p>' +
-//                        '<p class="medium"><strong>Medium: </strong>' + artPiece.get('medium') + '</p>' +
-//                        '<p class="description"><strong>Description: </strong>' + artPiece.get('description') + '</p>' +
-//                        '<p class="location"><strong>Location: </strong>' + artPiece.get('location') + '</p>' +
-//                        '<p class="address"><strong>Address: </strong>' + artPiece.get('address') + '</p>' +
-//                        '</div>';
-
 function getHotDeeds(){
 
   $.ajax({
