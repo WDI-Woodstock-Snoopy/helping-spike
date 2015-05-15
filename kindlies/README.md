@@ -1,0 +1,99 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
+
+_______________________________________________________________
+
+#KINDLIES
+This is the first version of Kindlies, a social media app for people who carry out random acts of kindness.  Kindlies was built with Ruby on Rails and incorporates Backbone, geotags, and API technologies. Skeleton was employed to display a consistent polished look.
+
+Kindlies allows users to log-in and record their acts of kindness.  Whether it's helping someone cross the street or serving a meal at the local soup kitchen, you can the world know what acts of kindness are happening around you.  There is a text box for a high level description as well as a message box to go into more detail.  But wait, there's more... you can even upload pictures of these acts and pot them on the site.
+
+
+#Screenshots
+homepage w/an image post showing
+map page
+
+
+#Challenges
+Our biggest challenge was allowing users the ability to post images to our site.  At first we installed the Carrierwave gem but ?????had complications when trying to communicate with the Backbone library???????.  Our solution was to write a JavaScript function and incorporate Base64 encoding to send the images to our database.
+
+```javascript
+    $('#file').on('focusout', function() {
+
+    reader.onload = function (event) {
+        try {
+          console.log(event.target.result);
+            dataToUpload.file = event.target.result;
+        } catch (ex) {
+            throw new Error("Error Error");
+        }
+      }
+
+      var file = document.getElementById('file');
+
+      reader.readAsDataURL(file.files[0]);
+    });
+    imageFile = dataToUpload.file;
+    ```
+
+Another complication was having the geotags in our maps to display the text.  It took some configuration but the code below is how we accomplished it.
+
+```javascript
+    function submitData(){
+      var imageData = dataToUpload.file;
+      $.ajax({
+        method: "post",
+        url: "/hands",
+        dataType: 'json',
+        data: { hand: {title: summary, message: content, lat: latitude, long: longitude, image: imageData     }, authenticity_token: token },
+        success: function(){
+          console.log("data added successfully!");
+
+        }
+      });
+      if(currentViewNew==false){
+        getHotDeeds();
+      }
+      else {
+        getNewDeeds();
+      }
+    }
+    ```
+
+Being able to count and rank votes was another area of concern.  Using the `gem 'acts_as_votable'` enabled us to track the votes.  It was tied together with routes and API calls.
+
+
+#Upcoming
+In our upcoming versions we plan include a D3 graph comparing the different communities and their act of kindness.  Who knows maybe you live in a friendlier neighborhood than you thought.
+
+Additionally,  profile pages tracking your own posts and friends' posts will be available.  Within this page you will also be able to star your favorites!
+
+
+#Authors
+The Kindlies app is a [link to Gaby Ruiz-Funes](https://github.com/mightyGaby), [link to Rodrigo Torres](https://github.com/rtone1), and [link to Tyler Geneva](https://github.com/ctylerg) collaboration.
