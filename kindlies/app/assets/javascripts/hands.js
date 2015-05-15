@@ -56,6 +56,7 @@ $(document).ready(function(){
   image = $("#new_hand").find("input[name='hand[image]']").val();
   // Send the data using post
   submitData();
+  $( "#new_hand" ).slideToggle(500);
 
   summary = $( "#new_hand" ).find( "input[name='hand[title]']" ).val("");
   content = $( "#new_hand" ).find( "input[name='hand[message]']" ).val("");
