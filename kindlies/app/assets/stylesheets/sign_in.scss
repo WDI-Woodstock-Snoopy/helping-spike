@@ -4,11 +4,10 @@
   height: 900px;
   overflow: hidden;
 
-.container{
+.wrapper{
   width: 100%;
   position: relative;
   top: 150px;
-  overflow: hidden;
 }
 
 .form-section{
@@ -98,7 +97,7 @@ input[type="password"]{
 }
 
 @media (max-width: 960px){
-  .container{
+  .wrapper{
     width: 100%;
     position: relative;
     top: 90px;
@@ -113,7 +112,7 @@ input[type="password"]{
     height: 300px;
     width:  350px;
   }
-  .container{
+  .wrapper{
     width: 100%;
     position: relative;
     top: 90px;
