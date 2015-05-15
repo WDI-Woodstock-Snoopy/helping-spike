@@ -15,14 +15,23 @@
  */
 @import 'normalize.scss';
 @import 'skeleton.scss';
+$headerheight: 50px;
+$maincolor: aliceblue;
 
 *{
   font-family: sans-serif;
   list-style-type: none;
 }
-#sidebar{
-  margin: 0px;
 
+
+body{
+  background-color: lightgrey;
+}
+#sidebar{
+  height: 100%;
+  background-color: white;
+  float: right;
+  clear: both;
 }
 .map, #smallMap{
   width: inherit;
@@ -30,7 +39,6 @@
   margin: 0px;
   clear: both;
 }
-
 #smallMap{
     height: 200px;
   }
@@ -41,4 +49,19 @@
     padding: 0px;
     margin: 0px;
     clear: both;
+}
+
+#header{
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  float: left;
+  width: 100%;
+  height: $headerheight;
+  background-color: $maincolor;
+  z-index: 2;
+}
+.container{
+  margin-top: $headerheight;
 }

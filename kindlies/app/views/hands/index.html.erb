@@ -1,60 +1,45 @@
-<div class="container">
-  <div class="top">
-    <div class="row" id="header">
-      <div class="one-third column"> <h5>Main page</h5> </div>
-      <div class="one-third column">
-        <h5 id="greetings"> <%= @user.username %> </h5>
-    </div>
-
+  <div id="header">
+    <div class="one-third column"> <h5>Main page</h5> </div>
     <div class="one-third column">
-      <%= form_tag('/session_log_out', method: :delete) do %>
-        <%= submit_tag "Log-Out" %>
-      <% end %>
-    </div>
-</div>
-<label id="share-something-form-toggle" for="new-act-form">Share something kind</label>
-<div class="row" id="new-act-form">
-    <div class="col s12">
-      <form action= "/hands" enctype="multipart/form-data" class="new_hand" id="new_hand">
-        <%= token_tag %>
-        <div class="u-full-width">
-          <input type="file" name="hand[image]" id="file">
-          <label for="headline">Headline</label>
-          <input id="headline" type="text" name="hand[title]" placeholder="Headline....">
-        </div>
-        <div class="u-full-width">
-          <label for="actOfKindness">Describe the kind act</label>
-          <input id="actOfKindness" type="text" name="hand[message]" placeholder="Act of Kindness....">
-        </div>
-        <input id="submit-hand" class="button-primary" type="submit" value="Share the Love!">
-      </form>
-    </div>
-  </div>
-</div>
-
-  <div class="row" id="view-tabs" >
-    <div class="two columns">
-      <h4 id="hot-tab"> Hot </h4>
-    </div>
-    <div class="two columns">
-      <h4 id="new-tab"> New </h4>
-    </div>
-    <HR>
-  </div>
-  <div class="act">
-    <div class="u-full-width" id="hand-stage">
+      <h5 id="greetings"> <%= @user.username %> </h5>
   </div>
 
+  <div class="one-third column">
+    <%= form_tag('/session_log_out', method: :delete) do %>
+      <%= submit_tag "Log-Out" %>
+    <% end %>
+  </div>
+  </div>
 
-      <!-- <div class="u-full-width" id = "new-acts-view">
+<div class="container">
+  <div class="row">
+
+    <div class="eight columns" id="view-tabs" >
+      <span id="hot-tab"> Hot </span> <span id="new-tab"> New </span>
+      <HR>
+    </div>
+
+    <div class="eight columns" id="hand-stage"></div>
+    <div class="four columns" id="sidebar">
+      <div class="u-full-width">
+        <label id="share-something-form-toggle" for="new-act-form">Share something kind</label>
+          <form action= "/hands" enctype="multipart/form-data" class="new_hand" id="new_hand">
+            <%= token_tag %>
+            <div class="u-full-width">
+              <input type="file" name="hand[image]" id="file">
+              <label for="headline">Headline</label>
+              <input id="headline" type="text" name="hand[title]" placeholder="Headline....">
+            </div>
+            <div class="u-full-width">
+              <label for="actOfKindness">Describe the kind act</label>
+              <input id="actOfKindness" type="text" name="hand[message]" placeholder="Act of Kindness....">
+            </div>
+            <input id="submit-hand" class="button-primary" type="submit" value="Share the Love!">
+          </form>
       </div>
-
-      <div class="u-full-width" id="hot-acts-view">
-      </div> -->
-
       <div class= "map" id="smallMap"></div>
-
     </div>
+  </div>
 </div>
 
 <script>

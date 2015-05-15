@@ -1,7 +1,7 @@
 var NewHandsView = Backbone.View.extend({
 
-  tagName: "li",
-  className: "newHand",
+  tagName: "div",
+  className: "u-full-width",
   template: _.template($("#hand-item").html()),
   render: function(data) {
     this.data = data;
@@ -33,8 +33,8 @@ var NewHandsView = Backbone.View.extend({
 
 var HotHandsView = Backbone.View.extend({
 
-  tagName: "li",
-  className: "hotAct",
+  tagName: "div",
+  className: "u-full-width",
   template: _.template($("#hand-item").html()),
   render: function(data) {
     this.data = data;
