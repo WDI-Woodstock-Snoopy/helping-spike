@@ -1,0 +1,92 @@
+<div class='not-move'>
+    <div class="headertop">
+      <div class='headertop1'>
+        top stuff
+      </div>
+      <div class='headertop1'>
+        <span id="greetings"> <%= @user.username %> </span>
+      </div>
+    </div>
+    <div class="headerbottom">
+      <span class='three columns dev' id="share-something-form-toggle"> Share something kind </span>
+      <span class='one columns dev' id="hot-tab"> Hot</span>
+      <span class='one columns dev' id="new-tab"> New </span>
+    </div>
+
+    <div class="headerbottom">
+      <span class='eight columns dev'>
+        <div class="submit-form dev">
+            <form action= "/hands" enctype="multipart/form-data" class="new_hand" id="new_hand">
+              <%= token_tag %>
+              <div class="u-full-width">
+                <input type="file" name="hand[image]" id="file">
+                <label for="headline">Headline</label>
+                <input id="headline" type="text" name="hand[title]" placeholder="Headline....">
+              </div>
+              <div class="u-full-width">
+                <label for="actOfKindness">Describe the kind act</label>
+                <input id="actOfKindness" type="text" name="hand[message]" placeholder="Act of Kindness....">
+              </div>
+              <input id="submit-hand" class="button-primary" type="submit" value="Share the Love!">
+            </form>
+        </div>
+      </span>
+    </div>
+</div>
+
+
+<div class="content">
+
+  <div class='eight columns dev' id="hand-stage"></div>
+
+  <span class='four columns sidebar'>
+
+    <div class="row">
+      <span class='twelve columns dev'>
+        <div class= "map" id="smallMap"></div>
+      </span>
+    </div>
+
+    <div class="row">
+      <li>SIDE</li>
+      <li>SIDE</li>
+      <li>SIDE</li>
+      <li>SIDE</li>
+      <li>SIDE</li>
+      <div class="three columns" id="sidebar">
+        <%= form_tag('/session_log_out', method: :delete) do %>
+        <%= submit_tag "Log-Out" %>
+        <% end %>
+        <div class="map-wrapper"><div class= "map" id="smallMap"></div></div>
+
+      </div>
+    </div>
+
+  </span>
+
+</div>
+
+
+<script>
+//DECLARES TIME/DATE VARS
+var today = new Date();
+var hourNow = today.getHours();
+var greeting;
+var display = $('#greetings')
+
+//DISPLAYS TIME-BASED GREETING TO CURRENT_USER
+function heyYall(){
+  if (hourNow > 18){
+    greeting = 'Good Evening, ';
+  } else if (hourNow > 12){
+    greeting = 'Good Afternoon, ';
+  } else if (hourNow > 0){
+    greeting = 'Good Morning, ';
+  } else {
+    greeting = 'Welcome, ';
+  }
+  display.prepend(greeting);
+}
+
+heyYall()
+</script>

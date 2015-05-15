@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="top">
+    <div class="row" id="header">
+      <div class="one-third column"> <h5>Map page</h5> </div>
+
+      <div class="one-third column">
+        <h5 id="greetings"> <%= @user.username %> </h5>
+      </div>
+
+      <div class="one-third column">
+        <%= form_tag('/session_log_out', method: :delete) do %>
+        <%= submit_tag "Log-Out" %>
+        <% end %>
+      </div>
+    </div>
+
+      <div class="row" id="mapwrapper">
+        <div class="one-third column">
+          <div class= "map" id="largeMap"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+//DECLARES TIME/DATE VARS
+var today = new Date();
+var hourNow = today.getHours();
+var greeting;
+var display = $('#greetings')
+
+//DISPLAYS TIME-BASED GREETING TO CURRENT_USER
+function heyYall(){
+  if (hourNow > 18){
+    greeting = 'Good Evening, ';
+  } else if (hourNow > 12){
+    greeting = 'Good Afternoon, ';
+  } else if (hourNow > 0){
+    greeting = 'Good Morning, ';
+  } else {
+    greeting = 'Welcome, ';
+  }
+  display.prepend(greeting);
+}
+
+heyYall()
+</script>
