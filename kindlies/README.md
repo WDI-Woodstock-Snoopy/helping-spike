@@ -96,4 +96,4 @@ Additionally,  profile pages tracking your own posts and friends' posts will be 
 
 
 #Authors
-The Kindlies app is a [link to Gaby Ruiz-Funes](https://github.com/mightyGaby), [link to Rodrigo Torres](https://github.com/rtone1), and [link to Tyler Geneva](https://github.com/ctylerg) collaboration.
+The Kindlies app is a [Gaby Ruiz-Funes](https://github.com/mightyGaby), [Rodrigo Torres](https://github.com/rtone1), and [Tyler Geneva](https://github.com/ctylerg) collaboration.
