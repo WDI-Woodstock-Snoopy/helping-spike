@@ -1,5 +1,5 @@
   <div id="header">
-    <div class="one-third column"> <h5>Main page</h5> </div>
+    <div class="one-third column"> <h5> Small acts have big impacts</h5> </div>
     <div class="one-third column">
       <h5 id="greetings"> <%= @user.username %> </h5>
   </div>
@@ -12,10 +12,9 @@
   </div>
 
 <div class="container">
-  <div class="row">
-
-    <div class="eight columns" id="view-tabs" >
-      <span id="hot-tab"> Hot </span> <span id="new-tab"> New </span>
+    <div id="view-tabs" >
+      <div class="two columns" id="hot-tab"> Hot </div>
+      <div class="two columns" id="new-tab"> New </div> 
       <HR>
     </div>
 
@@ -39,7 +38,6 @@
       </div>
       <div class= "map" id="smallMap"></div>
     </div>
-  </div>
 </div>
 
 <script>
