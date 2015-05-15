@@ -16,7 +16,7 @@ $(document).ready(function(){
         console.log(event.target.result);
           dataToUpload.file = event.target.result;
       } catch (ex) {
-          throw new Error("Some shit went down");
+          throw new Error("Error Error");
       }
     }
 
