@@ -4,16 +4,17 @@
   <title>Kindlies</title>
 
   <script type='text/template' id='hand-item'>
-    <div class="u-full-width">
+  <div id='hand-card'>
     <strong> <%%= title %> </strong>
   </br>
   <img src="<%%= image %>"/>
   <%%= message %>
   </br>
   <%%= score %> <button type="button" class='vote'>Upvote</button>
-  </div>
   <HR>
+  </div>
   </script>
+
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -24,7 +25,9 @@
 
 <span id='token' data-token="<%= form_authenticity_token %>"></span>
 
-<%= yield %>
+<div class="container">
+  <%= yield %>
+</div>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script>
