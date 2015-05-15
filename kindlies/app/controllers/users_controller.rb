@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+    authenticate!
     @users = User.all
   end
 
@@ -9,10 +10,11 @@ class UsersController < ApplicationController
   end
   def create
     user = User.create( user_params )
-    redirect_to "/sign_in"
+    redirect_to "/hands"
   end
 
   def edit
+    authenticate!
     @user = User.find(params[:id])
   end
   def update
@@ -28,10 +30,12 @@ class UsersController < ApplicationController
   end
 
   def show
+    authenticate!
     @user = User.find(params[:id])
   end
 
   def destroy
+    authenticate!
     User.destroy( params[:id] )
     redirect_to "/users"
   end
@@ -43,7 +47,12 @@ class UsersController < ApplicationController
   end
 
   def map_page
+    authenticate!
     @user = current_user
+  end
+
+  def sign_in
+    @user = User.new
   end
 
 
