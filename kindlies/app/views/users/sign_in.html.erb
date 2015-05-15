@@ -1,13 +1,17 @@
-  <h1>Sign In</h1>
+<body id="sign-inpage">
+  <div class="content">
+    <h1>Sign In</h1>
 
-  <%= form_tag('/session_log_in', method: :post) do %>
-    <%= label_tag :username %>
-    <%= text_field_tag :username %>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </br>
-    <%= submit_tag "Sign-In" %>
-   <% end %>
+    <%= form_tag('/session_log_in', method: :post) do %>
+      <%= label_tag :username %>
+      <%= text_field_tag :username %>
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </br>
+      <%= submit_tag "Sign-In" %>
+     <% end %>
+
+  </div>
 
   <script type="text/javascript">
 
@@ -21,3 +25,4 @@
    });
 
   </script>
+</body>
