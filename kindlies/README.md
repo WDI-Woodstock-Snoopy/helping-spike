@@ -60,7 +60,7 @@ Our biggest challenge was allowing users the ability to post images to our site.
       reader.readAsDataURL(file.files[0]);
     });
     imageFile = dataToUpload.file;
-    ```
+```
 
 Another complication was having the geotags in our maps to display the text.  It took some configuration but the code below is how we accomplished it.
 
@@ -84,7 +84,7 @@ Another complication was having the geotags in our maps to display the text.  It
         getNewDeeds();
       }
     }
-    ```
+```
 
 Being able to count and rank votes was another area of concern.  Using the `gem 'acts_as_votable'` enabled us to track the votes.  It was tied together with routes and API calls.
 
