@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$headerheight: 50px;
+$maincolor: aliceblue;
+
 #view-tabs{
   h4{
     margin: 0px auto;
@@ -24,6 +27,32 @@
   overflow: hidden;
 }
 
-// #new-action{
-//     display: hidden;
-// }
+.container{
+  margin-top: $headerheight;
+  overflow-y: scroll;
+}
+
+#header{
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  float: left;
+  width: 100%;
+  height: $headerheight;
+  background-color: $maincolor;
+  z-index: 2;
+  overflow: hidden;
+  form{
+    margin: 0;
+  }
+}
+
+#sidebar{
+  background-color: white;
+  position: fixed;
+  margin: 0px 0px 0px 10px;
+  top: $headerheight;
+  right: 0px;
+  padding-top: 20px;
+}

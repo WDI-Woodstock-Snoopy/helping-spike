@@ -15,8 +15,7 @@
  */
 @import 'normalize.scss';
 @import 'skeleton.scss';
-$headerheight: 50px;
-$maincolor: aliceblue;
+
 
 *{
   font-family: sans-serif;
@@ -31,14 +30,6 @@ html, body{
 
 }
 
-#sidebar{
-  background-color: white;
-  position: fixed;
-  margin: 0px 0px 0px 10px;
-  top: $headerheight;
-  right: 0px;
-  padding-top: 20px;
-}
 .map, #smallMap{
   padding: 0px;
 }
@@ -54,26 +45,4 @@ html, body{
     padding: 0px;
     margin: 0px;
     clear: both;
-}
-
-#header{
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  float: left;
-  width: 100%;
-  height: $headerheight;
-  background-color: $maincolor;
-  z-index: 2;
-  overflow: hidden;
-  form{
-    margin: 0;
-  }
-
-}
-.container{
-  margin-top: $headerheight;
-  overflow-y: scroll;
-
 }
