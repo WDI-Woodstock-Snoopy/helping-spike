@@ -14,13 +14,13 @@
 <div class="container">
     <div id="view-tabs" >
       <div class="two columns" id="hot-tab"> Hot </div>
-      <div class="two columns" id="new-tab"> New </div> 
+      <div class="two columns" id="new-tab"> New </div>
       <HR>
     </div>
 
     <div class="eight columns" id="hand-stage"></div>
     <div class="four columns" id="sidebar">
-      <div class="u-full-width">
+      <div class="submit-form">
         <label id="share-something-form-toggle" for="new-act-form">Share something kind</label>
           <form action= "/hands" enctype="multipart/form-data" class="new_hand" id="new_hand">
             <%= token_tag %>
@@ -35,6 +35,9 @@
             </div>
             <input id="submit-hand" class="button-primary" type="submit" value="Share the Love!">
           </form>
+          <nav>
+
+          </nav>
       </div>
       <div class= "map" id="smallMap"></div>
     </div>
