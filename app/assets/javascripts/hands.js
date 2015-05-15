@@ -8,6 +8,20 @@ var currentViewHot;
 $(document).ready(function(){
   getCoords();
   currentViewNew = true;
+  getNewDeeds();
+
+  $("#new-tab").click(function(){
+    getNewDeeds();
+    currentViewNew = true;
+    $("#new-tab").css("color", "blue")
+    console.log(currentViewNew);
+  })
+
+  $("#hot-tab").click(function(){
+    getHotDeeds();
+    currentViewNew = false;
+    console.log(currentViewNew);
+  })
 
   $('#file').on('focusout', function() {
 
@@ -30,20 +44,6 @@ $(document).ready(function(){
 
   $("#share-something-form-toggle").click(function(){
     $( "#new_hand" ).slideToggle(500);
-  })
-
-  getNewDeeds();
-
-  $("#new-tab").click(function(){
-    getNewDeeds();
-    currentViewNew = true;
-    console.log(currentViewNew);
-  })
-
-  $("#hot-tab").click(function(){
-    getHotDeeds();
-    currentViewNew = false;
-    console.log(currentViewNew);
   })
 
   $( "#new_hand" ).submit(function( event ) {
