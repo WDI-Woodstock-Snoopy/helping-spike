@@ -2,82 +2,104 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$headerheight: 100px;
-$maincolor: aliceblue;
-
-#view-tabs{
-  margin-top: 150px;
-  h4{
-    margin: 0px auto;
-  }
-  // HR{
-  //   clear: both;
-  // }
+.dev{
+  background-color:lightblue;
+  border: 1px solid red;
 }
 
-#display-new{
-  border-left: 1px solid white;
-  padding-left: 1em;
-  margin-left: 1em;
-}
-#display-hot{
-  padding-left: 2em;
-}
-
-#hand-stage{
-
-  overflow-y: scroll;
-  margin: 0 auto;
-}
-
-#content-wrapper{
-  margin-top: $headerheight;
-}
-
-#header{
-  display: block;
+.submit-form{
+  // z-index: 3;
   position: fixed;
-  top: 0;
-  left: 0;
-  float: left;
-  width: 100%;
-  height: $headerheight;
-  background-color: $maincolor;
+}
+
+.header{
+  // top: 0;
+//   display: block;
+  // position: fixed;
+//   margin: 0 auto;
+//   left: 0;
+//   right: 0;
+//   // float: left;
+// //   // // height: $headerheight;
   z-index: 2;
-  overflow: visible;
-  -webkit-box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
-  -moz-box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
-  box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
-  form, h5, h4{
-    margin: 0 auto;
+//   // overflow: visible;
+//     -webkit-box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
+//     -moz-box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
+//     box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
   }
-  #main-greeting{
-    width: 70%;
-    margin: 0 auto;
-  }
-  .header-row-1{
-    width: 100%
-  }
-  .header-row-2{
-    width: 100%
 
-  }
-}
 
-#submit-form{
-  margin: 0 auto;
-  z-index: 2;
-  clear: both;
-}
+// $headerheight: 100px;
+// $maincolor: aliceblue;
+//
+// #view-tabs{
+//   margin-top: 150px;
+//   h4{
+//     margin: 0px auto;
+//   }
+//   // HR{
+//   //   clear: both;
+//   // }
+// }
+//
+// #display-new{
+//   border-left: 1px solid white;
+//   padding-left: 1em;
+//   margin-left: 1em;
+// }
+// #display-hot{
+//   padding-left: 2em;
+// }
+//
+// #hand-stage{
+//
+//   overflow-y: scroll;
+//   margin: 0 auto;
+// }
+//
+// #content-wrapper{
+//   margin-top: $headerheight;
+// }
+//
+//
 
-#sidebar{
-  height: 100%;
-  background-color: lightgrey;
-  position: fixed;
-  margin: 0px 0px 0px 10px;
-  top: $headerheight;
-  right: 0px;
-  overflow: visible;
-  padding-top: 20px;
-  border: 0px solid #000000;
-}
+//   #main-greeting{
+//     width: 70%;
+//     margin: 0 auto;
+//   }
+//
+//   #submit-form{
+//     margin: 0 auto;
+//     z-index: 2;
+//     clear: both;
+//     display: block;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     z-index: 2;
+//     overflow: visible;
+//   }
+//
+// }
+//
+// #sidebar{
+//   height: 100%;
+//   position: fixed;
+//   margin: 0px 0px 0px 10px;
+//   top: $headerheight;
+//   right: 0px;
+//   overflow: visible;
+//   padding-top: 20px;
+//   padding-left: 10px;
+//   padding-right: 10px;
+//   border-left: 1px solid lightgrey;
+//   .map-wrapper{
+//     width: 100%;
+//     margin: 0px auto;
+//   }
+// }
+//
+// #hand-card{
+//   background-color: whitesmoke;
+// }
