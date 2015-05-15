@@ -1,9 +1,9 @@
-// # Place all the behaviors and hooks related to the matching controller here.
-// # All this logic will automatically be available in application.js.
-// # You can use CoffeeScript in this file: http://coffeescript.org/
-//submit = 5 points
-//upvote = 1 point
-//CREATE MAP THAT IS CENTERED ON Chicago
+// // # Place all the behaviors and hooks related to the matching controller here.
+// // # All this logic will automatically be available in application.js.
+// // # You can use CoffeeScript in this file: http://coffeescript.org/
+// //submit = 5 points
+// //upvote = 1 point
+// //CREATE MAP THAT IS CENTERED ON Chicago
 
 var map;
 
@@ -39,9 +39,7 @@ function renderMarkers(mapName){
           map: mapName
         });
 
-        var contentString = " test ";
-
-
+      var contentString = "hello my name is gaby !!!!!!";
       infowindow = new google.maps.InfoWindow({
           content: contentString
       });
