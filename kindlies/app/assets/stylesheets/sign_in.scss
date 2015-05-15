@@ -6,7 +6,7 @@
 .container{
   width: 100%;
   position: relative;
-  top: 170px;
+  top: 150px;
 }
 
 .form-section{
@@ -15,6 +15,11 @@
 }
 .form-section h1, p{
   text-align: center;
+}
+.form-section p{
+  color: rgb(36, 160, 207);
+  font-size: 16px;
+  margin-top: -10px;
 }
 
 .content{
