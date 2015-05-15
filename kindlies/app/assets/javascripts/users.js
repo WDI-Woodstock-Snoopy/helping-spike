@@ -39,7 +39,9 @@ function renderMarkers(mapName){
           map: mapName
         });
 
-      var contentString = "hello my name is gaby !!!!!!";
+        var contentString = " test ";
+
+
       infowindow = new google.maps.InfoWindow({
           content: contentString
       });

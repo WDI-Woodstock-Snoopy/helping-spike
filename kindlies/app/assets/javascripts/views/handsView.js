@@ -40,6 +40,7 @@ var HotHandsView = Backbone.View.extend({
     this.data = data;
     var html = this.template(data);
     this.$el.html(html);
+    // place marker
     this.delegateEvents();
   },
   events: {
