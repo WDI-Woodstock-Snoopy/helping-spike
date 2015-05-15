@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  root 'users#sign_in'
   resources :users
   resources :hands do
     member do
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   get '/sign_in' => 'users#sign_in'
+
   post '/session_log_in' => 'sessions#log_in_behavior'
   delete '/session_log_out' => 'sessions#log_out_behavior'
 

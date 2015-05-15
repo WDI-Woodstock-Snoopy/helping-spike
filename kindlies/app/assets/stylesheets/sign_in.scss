@@ -3,6 +3,20 @@
   background-size: cover;
   height: 702px;
 
+.container{
+  width: 100%;
+  position: relative;
+  top: 170px;
+}
+
+.form-section{
+  width: 65%;
+  margin: 0px auto;
+}
+.form-section h1, p{
+  text-align: center;
+}
+
 .content{
   background-color: white;
   height: 320px;
@@ -10,9 +24,28 @@
   margin: 0px auto;
   padding: 30px;
   border-radius: 6px;
-  position: relative;
-  top: 180px;
   box-shadow: 0px 0px 8px 2px rgb(81, 77, 77);
 }
+input[type="text"],
+input[type="password"]{
+  font-size: 18px;
+}
 
-}//body end tag
+.sign-upform{
+  margin: 0px auto;
+  width: 63%;
+  color: white;
+}
+.upform{
+  margin-left: 10px;
+  display: block;
+  float: left;
+}
+.sign-upform input{
+  color: black;
+}
+.sign-upform input[type="submit"]{
+  color: white;
+}
+
+}//sign-in end tag
