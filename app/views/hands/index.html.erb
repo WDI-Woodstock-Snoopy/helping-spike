@@ -2,22 +2,21 @@
   <div class="container">
     <div class="row dev">
       <div class='headertop1'>
-        <span class="eight columns dev"> SMALL ACTS HAVE BIG IMPACTS</span>
-        <span class="four columns dev" id="greetings"> <%= @user.username %> </span>
+        <span class="twelve columns" id="site-tagline"> Be Kind  </span>
       </div>
     </div>
-    <div class="headerbottom">
-      <span class='three columns dev' id="share-something-form-toggle"> Share something kind </span>
-      <span class='one columns dev' id="hot-tab"> Hot</span>
-      <span class='one columns dev' id="new-tab"> New </span>
+    <div class="eight columns dev">
+      <span id="share-something-form-toggle"> Share something kind | </span>
+      <span id="hot-tab"> Hot | </span>
+      <span id="new-tab"> Newest Acts of Kindness </span>
     </div>
+      <span class="three columns dev" id="greetings"> <%= @user.username %> </span>
     <div class="headerbottom">
       <span class='eight columns dev'>
         <div class="submit-form dev">
             <form action= "/hands" enctype="multipart/form-data" class="new_hand" id="new_hand">
               <%= token_tag %>
               <div class="u-full-width">
-                <input type="file" name="hand[image]" id="file">
                 <label for="headline">Headline</label>
                 <input id="headline" type="text" name="hand[title]" placeholder="Headline....">
               </div>
@@ -25,6 +24,7 @@
                 <label for="actOfKindness">Describe the kind act</label>
                 <input id="actOfKindness" type="text" name="hand[message]" placeholder="Act of Kindness....">
               </div>
+              <input type="file" name="hand[image]" id="file">
               <input id="submit-hand" class="button-primary" type="submit" value="Share the Love!">
             </form>
         </div>
@@ -37,8 +37,8 @@
 
   <div class='eight columns dev' id="hand-stage"></div>
 
-  <div class='four columns dev '>
-    <div class-"sidebar">
+  <div class='four columns dev'>
+    <div class="sidebar">
       <div class="row">
         <span class='twelve columns dev'>
           <div class= "map" id="smallMap"></div>

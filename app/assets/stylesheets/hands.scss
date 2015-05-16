@@ -4,50 +4,52 @@
 //
 .dev{
   // background-color:lightblue;
-  // border: 1px solid red;
+  border: 1px solid red;
 }
-$headerheight: 100px;
-// // $maincolor: aliceblue;
+
+$headerheight: 150px;
+$maincolor: tomato;
+$secondcolor: #33C3F0;
 //
 .submit-form{
   z-index: 3;
   position: fixed;
 }
-// //
 .not-move{
   top: 0;
-  background-color: aliceblue;
   position: fixed;
-  // width: 100%;
   margin: 0 auto;
   left: 0;
   right: 0;
   height: auto;
-  z-index: 2;
+  z-index: 3;
   overflow: visible;
+  background-color: $maincolor;
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
+  color: white;
     -webkit-box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
     -moz-box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
     box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
+}
+#site-tagline{
+  font-family: 'Lobster', cursive;
+  font-size: 3em;
+  color: white;
+  // text-shadow: 2px 2px 0px white;
+  margin: 0px auto;
 }
 
 #content{
   margin-top: $headerheight;
 }
 .sidebar{
-// //   width: 100%;
-  height: 100%;
+  height: auto;
   position: fixed;
-//   //   margin: 0px 0px 0px 10px;
-  // top: $headerheight;
-//   //   right: 0px;
-//   //   overflow: visible;
-//   //   padding-top: 20px;
-//   //   padding-left: 10px;
-//   //   padding-right: 10px;
-//   //   border-left: 1px solid lightgrey;
-//   //   .map-wrapper{
-//   //     width: 100%;
-//   //     margin: 0px auto;
+  background-color: white;
+
+  -webkit-box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
+  -moz-box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
+  box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
     form{
       margin: 0 auto;
     }
@@ -72,47 +74,21 @@ $headerheight: 100px;
 // // #display-hot{
 // //   padding-left: 2em;
 // // }
-// //
-// // #hand-stage{
-// //
-// //   overflow-y: scroll;
-// //   margin: 0 auto;
-// // }
-// //
 // // #content-wrapper{
 // //   margin-top: $headerheight;
 // // }
-// //
-// //
-//
-// //   #main-greeting{
-// //     width: 70%;
-// //     margin: 0 auto;
-// //   }
-// //
-// //   #submit-form{
-// //     margin: 0 auto;
-// //     z-index: 2;
-// //     clear: both;
-// //     display: block;
-// //     position: fixed;
-// //     top: 0;
-// //     left: 0;
-// //     width: 100%;
-// //     z-index: 2;
-// //     overflow: visible;
-// //   }
-// //
-// // }
+
+#new_hand{
+  width: 100%;
+  padding: 6%;
+  background-color: whitesmoke;
+  z-index: 2;
+}
 // //
 // //
 #hand-card{
-  padding-top: 5%;
-  padding-bottom: 5%;
-  padding-left: 8%;
-  padding-right: 8%;
-
   background-color: white;
+  color: black;
   margin-bottom: 10px;
   -webkit-box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
   -moz-box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
@@ -126,6 +102,18 @@ $headerheight: 100px;
   }
   hand-title{
     margin: 0px auto;
-    width: 800%;
+    width: 100%;
+  }
+  button{
+    float: right;
+  }
+  .card-top{
+    background-color: $secondcolor;
+  }
+  .card-top, .card-body{
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 6%;
+  padding-right: 6%;
   }
 }
