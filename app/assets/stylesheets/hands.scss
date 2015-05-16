@@ -4,7 +4,7 @@
 //
 .dev{
   // background-color:lightblue;
-  border: 1px solid red;
+  // border: 1px solid red;
 }
 
 $headerheight: 150px;
@@ -45,8 +45,9 @@ $secondcolor: #33C3F0;
 .sidebar{
   height: auto;
   position: fixed;
+  padding: 2%;
   background-color: white;
-
+  margin: 0 auto;
   -webkit-box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
   -moz-box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
   box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
