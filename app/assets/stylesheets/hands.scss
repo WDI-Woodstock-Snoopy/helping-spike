@@ -10,10 +10,12 @@
 $headerheight: 150px;
 $maincolor: tomato;
 $secondcolor: #33C3F0;
-//
+$thirdcolor: whitesmoke;
+
 .submit-form{
   z-index: 3;
   position: fixed;
+  background-color: white;
 }
 .not-move{
   top: 0;
@@ -27,9 +29,9 @@ $secondcolor: #33C3F0;
   background-color: $maincolor;
   font-family: "Raleway", Helvetica, Arial, sans-serif;
   color: white;
-    -webkit-box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
-    -moz-box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
-    box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
+    -webkit-box-shadow: 0px 6px 8px 0px rgba(0,0,0,.6);
+    -moz-box-shadow: 0px 6px 8px 0px rgba(0,0,0,.6);
+    box-shadow: 0px 6px 8px 0px rgba(0,0,0,.6);
 }
 #site-tagline{
   font-family: 'Lobster', cursive;
@@ -82,7 +84,7 @@ $secondcolor: #33C3F0;
 #new_hand{
   width: 100%;
   padding: 6%;
-  background-color: whitesmoke;
+  background-color: thirdcolor;
   z-index: 2;
 }
 // //
