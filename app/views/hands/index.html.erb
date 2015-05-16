@@ -1,10 +1,9 @@
-<div class='not-move'>
-    <div class="headertop">
+<div class='not-move dev'>
+  <div class="container">
+    <div class="row dev">
       <div class='headertop1'>
-        top stuff
-      </div>
-      <div class='headertop1'>
-        <span id="greetings"> <%= @user.username %> </span>
+        <span class="eight columns dev"> SMALL ACTS HAVE BIG IMPACTS</span>
+        <span class="four columns dev" id="greetings"> <%= @user.username %> </span>
       </div>
     </div>
     <div class="headerbottom">
@@ -12,7 +11,6 @@
       <span class='one columns dev' id="hot-tab"> Hot</span>
       <span class='one columns dev' id="new-tab"> New </span>
     </div>
-
     <div class="headerbottom">
       <span class='eight columns dev'>
         <div class="submit-form dev">
@@ -33,37 +31,36 @@
       </span>
     </div>
 </div>
+</div>
 
-
-<div class="content">
+<div class="row" id="content">
 
   <div class='eight columns dev' id="hand-stage"></div>
 
-  <span class='four columns sidebar'>
+  <div class='four columns dev '>
+    <div class-"sidebar">
+      <div class="row">
+        <span class='twelve columns dev'>
+          <div class= "map" id="smallMap"></div>
+        </span>
+      </div>
 
-    <div class="row">
-      <span class='twelve columns dev'>
-        <div class= "map" id="smallMap"></div>
-      </span>
-    </div>
 
-    <div class="row">
+    <nav class="row">
+      <li>Map</li>
       <li>SIDE</li>
       <li>SIDE</li>
       <li>SIDE</li>
-      <li>SIDE</li>
-      <li>SIDE</li>
-      <div class="three columns" id="sidebar">
+      <span class="twelve columns dev">
         <%= form_tag('/session_log_out', method: :delete) do %>
         <%= submit_tag "Log-Out" %>
         <% end %>
-        <div class="map-wrapper"><div class= "map" id="smallMap"></div></div>
+    </span>
+    </nav>
+    <div>
+  </div>
 
-      </div>
-    </div>
-
-  </span>
-
+</div>
 </div>
 
 

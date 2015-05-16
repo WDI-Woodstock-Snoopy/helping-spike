@@ -2,17 +2,21 @@
 <html>
 <head>
   <title>Kindlies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <script type='text/template' id='hand-item'>
-  <div id='hand-card'>
-    <strong> <%%= title %> </strong>
-  </br>
-  <img src="<%%= image %>"/>
-  <%%= message %>
-  </br>
-  <%%= score %> <button type="button" class='vote'>Upvote</button>
-  <HR>
-  </div>
+    <div class="u-full-width" id='hand-card'>
+      <div class="summary"><strong> <%%= title %> </strong></div>
+      <div class="description"> <%%= message %> </div>
+      </br>
+      <div class="img-wrapper"><img src="<%%= image %>"/></div>
+      <HR>
+      <div class="row">
+        <span class="eightcolumns"><%%= score %> </span>
+        <span class="fourcolumns"><button type="button" class='vote'>Upvote</button></span>
+      </div>
+    </div>
+
   </script>
 
 
