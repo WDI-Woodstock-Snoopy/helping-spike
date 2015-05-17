@@ -27,7 +27,7 @@
   color: rgb(36, 160, 207);
   font-size: 16px;
   margin-top: -10px;
-  -webkit-animation: bounce 1s;
+  -webkit-animation: bounce .8s;
 }
 
 .content{
@@ -64,8 +64,8 @@ input[type="password"]{
 .sign-upform input[type="submit"]:hover{
   color: white;
   background-color: lightblue;
-  transition-background-color: 1s;
-   -webkit-transition: 1s;
+  transition-background-color: .5s;
+   -webkit-transition: .5s;
 }
 
 @-webkit-keyframes bounce {
