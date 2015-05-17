@@ -9,7 +9,7 @@ Kindlies allows users to log-in and record their acts of kindness.  Whether it's
 #Screenshots
 homepage w/an image post showing
 map page
-
+![Log_in Page](/log_in.png)
 
 #Challenges
 Our biggest challenge was allowing users the ability to post images to our site.  At first we installed the Carrierwave gem but ?????had complications when trying to communicate with the Backbone library???????.  Our solution was to write a JavaScript function and incorporate Base64 encoding to send the images to our database.
