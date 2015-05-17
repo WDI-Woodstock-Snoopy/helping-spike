@@ -30,6 +30,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'acts_as_votable', '~> 0.10.0'
 
+gem 'd3-rails', '~> 3.5.5'
+
 # gem 'materialize-sass'
 # Use Unicorn as the app server
 # gem 'unicorn'

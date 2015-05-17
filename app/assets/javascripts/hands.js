@@ -204,10 +204,8 @@ function initializeMap(){
     center: defaultCenter,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
-  // largeMap = new google.maps.Map(document.getElementById("largeMap"), defaultOptions);
   smallMap = new google.maps.Map(document.getElementById("smallMap"), defaultOptions);
 
-  // renderMarkers(largeMap);
   renderMarkers(smallMap);
 
 }
