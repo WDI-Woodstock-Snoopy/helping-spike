@@ -7,12 +7,10 @@
       </div>
     </div>
     <div class="twelve columns dev">
-      <span id="share-something-form-toggle"> Share something kind | </span>
-      <span id="hot-tab"> Hot | </span>
-      <span id="new-tab"> Newest Acts of Kindness </span>
-    </div>
-    <div class="headerbottom">
-      <span class='eight columns dev'>
+      <span class="three columns dev" id="share-something-form-toggle"> Share something kind </span>
+      <span class="three columns dev" id="hot-tab"> Small Acts, Big Impacts </span>
+      <span class="three columns dev" id="new-tab"> Newest Acts of Kindness </span>
+      <span class='twelve columns dev'>
         <div class="submit-form dev">
             <form action= "/hands" enctype="multipart/form-data" class="new_hand" id="new_hand">
               <%= token_tag %>
@@ -25,11 +23,12 @@
                 <input id="actOfKindness" type="text" name="hand[message]" placeholder="Act of Kindness....">
               </div>
               <input type="file" name="hand[image]" id="file">
+            </br>
               <input id="submit-hand" class="button-primary" type="submit" value="Share the Love!">
             </form>
         </div>
       </span>
-    </div>
+</div>
 </div>
 </div>
 
