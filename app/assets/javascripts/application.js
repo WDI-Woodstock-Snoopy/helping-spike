@@ -20,8 +20,9 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree ../../../vendor/assets/javascripts/
+//= require_tree ../../../vendor/assets/javascripts/
 //= require turbolinks
 //= require underscore
 //= require backbone
 //= require_tree .
-//= require_tree ../../../app/assets/javascripts/app
+//= require_tree ../../../db/

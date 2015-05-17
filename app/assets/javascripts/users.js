@@ -31,7 +31,6 @@ function renderMarkers(mapName){
           infowindow.open(mapName, marker);
         }
       })(marker, i));
-
         var contentString = '<div class="info-window">' + "<p>" + data[i].title +'</div>';
           infowindow.setContent(contentString);
           infowindow.open(mapName, marker);
