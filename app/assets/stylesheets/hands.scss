@@ -1,120 +1,135 @@
-// Place all the styles related to the hands controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
+// // Place all the styles related to the hands controller here.
+// // They will automatically be included in application.css.
+// // You can use Sass (SCSS) here: http://sass-lang.com/
+//
 .dev{
-  background-color:lightblue;
-  border: 1px solid red;
+  // background-color:lightblue;
+  // border: 1px solid red;
 }
-$headerheight: 50px;
+
+$headerheight: 120px;
+$maincolor: tomato;
+$secondcolor: #33C3F0;
+$thirdcolor: white;
 
 .submit-form{
-  // z-index: 3;
+  z-index: 3;
   position: fixed;
-}
+  background-color: white;
+  color: $secondcolor;
+  -webkit-box-shadow: 0px 4px 6px 0px rgba(0,0,0,.6);
+  -moz-box-shadow: 0px 4px 6px 0px rgba(0,0,0,.6);
+  box-shadow: 0px 4px 6px 0px rgba(0,0,0,.6);
 
+}
 .not-move{
   top: 0;
-//   display: block;
- position: fixed;
- width: 100%;
- height: $headerheight;
-//   margin: 0 auto;
-//   left: 0;
-//   right: 0;
-//   // float: left;
-// //   // // height: $headerheight;
-  // z-index: 2;
-//   // overflow: visible;
-//     -webkit-box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
-//     -moz-box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
-//     box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
+  position: fixed;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  height: auto;
+  z-index: 3;
+  overflow: visible;
+  background-color: $maincolor;
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
+  color: white;
+    -webkit-box-shadow: 0px 4px 6px 0px rgba(0,0,0,.6);
+    -moz-box-shadow: 0px 4px 6px 0px rgba(0,0,0,.6);
+    box-shadow: 0px 4px 6px 0px rgba(0,0,0,.6);
+}
+#site-tagline{
+  font-family: 'Oleo Script Swash Caps', cursive;
+  font-size: 3em;
+  color: white;
+  // text-shadow: 2px 2px 0px white;
+  margin: 0px auto;
+  #tagline2{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    font-weight: 100;
   }
-
-.headertop1{
-  float: left;
 }
 
-.headerbottom{
-  clear: both;
-}
-
-.content{
+#content{
   margin-top: $headerheight;
 }
 .sidebar{
-  // float: right;
-  //   height: 100%;
-    position: fixed;
-  //   margin: 0px 0px 0px 10px;
-  //   top: $headerheight;
-  //   right: 0px;
-  //   overflow: visible;
-  //   padding-top: 20px;
-  //   padding-left: 10px;
-  //   padding-right: 10px;
-  //   border-left: 1px solid lightgrey;
-  //   .map-wrapper{
-  //     width: 100%;
-  //     margin: 0px auto;
-  //   }
+  height: auto;
+  position: fixed;
+  padding: 2%;
+  background-color: $thirdcolor;
+  margin: 0 auto;
+  // border-left: 1px solid $secondcolor;
+  -webkit-box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
+  -moz-box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
+  box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
+    form{
+      margin: 0 auto;
+    }
   }
+//
+// //
+// // #view-tabs{
+// //   margin-top: 150px;
+// //   h4{
+// //     margin: 0px auto;
+// //   }
+// //   // HR{
+// //   //   clear: both;
+// //   // }
+// // }
+// //
+// // #display-new{
+// //   border-left: 1px solid white;
+// //   padding-left: 1em;
+// //   margin-left: 1em;
+// // }
+// // #display-hot{
+// //   padding-left: 2em;
+// // }
+// // #content-wrapper{
+// //   margin-top: $headerheight;
+// // }
 
-// $headerheight: 100px;
-// $maincolor: aliceblue;
-//
-// #view-tabs{
-//   margin-top: 150px;
-//   h4{
-//     margin: 0px auto;
-//   }
-//   // HR{
-//   //   clear: both;
-//   // }
-// }
-//
-// #display-new{
-//   border-left: 1px solid white;
-//   padding-left: 1em;
-//   margin-left: 1em;
-// }
-// #display-hot{
-//   padding-left: 2em;
-// }
-//
-// #hand-stage{
-//
-//   overflow-y: scroll;
-//   margin: 0 auto;
-// }
-//
-// #content-wrapper{
-//   margin-top: $headerheight;
-// }
-//
-//
-
-//   #main-greeting{
-//     width: 70%;
-//     margin: 0 auto;
-//   }
-//
-//   #submit-form{
-//     margin: 0 auto;
-//     z-index: 2;
-//     clear: both;
-//     display: block;
-//     position: fixed;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     z-index: 2;
-//     overflow: visible;
-//   }
-//
-// }
-//
-//
-// #hand-card{
-//   background-color: whitesmoke;
-// }
+#new_hand{
+  width: 100%;
+  padding: 6%;
+  background-color: thirdcolor;
+  z-index: 2;
+}
+// //
+// //
+#hand-card{
+  background-color: $thirdcolor;
+  color: black;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
+  -moz-box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
+  box-shadow: 0px 6px 8px 0px rgba(216,216,216,1);
+  .img-wrapper{
+    width: 100%;
+    margin: 0px auto;
+  }
+  img{
+    width: 100%;
+  }
+  hand-title{
+    margin: 0px auto;
+    width: 100%;
+  }
+  button{
+    float: right;
+  }
+  .card-top{
+    background-color: $thirdcolor;
+    padding-top: 4%;
+  }
+  .card-body{
+    padding-bottom: 2%;
+  }
+  .card-top, .card-body{
+  padding-left: 6%;
+  padding-right: 6%;
+  }
+}

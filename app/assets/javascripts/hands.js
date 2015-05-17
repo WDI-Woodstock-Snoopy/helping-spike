@@ -183,7 +183,7 @@ function renderMarkers(mapName){
       });
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        var contentString = '<div class="info-window">' + "<p>" + data[i].title + "</br>" + data[i].message + "</p>" +'</div>';
+        var contentString = '<div class="info-window">' + "<p>" + data[i].title + "</br>" + data[i].message + "</p>" +'</div></br>' + data[i].image;
         return function() {
           infowindow.setContent(contentString);
           infowindow.open(mapName, marker);
@@ -200,7 +200,7 @@ var map;
 function initializeMap(){
   var defaultCenter = new google.maps.LatLng(41.893974, -87.627945);
   var defaultOptions = {
-    zoom: 14,
+    zoom: 10,
     center: defaultCenter,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }

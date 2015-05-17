@@ -1,7 +1,7 @@
 var NewHandsView = Backbone.View.extend({
 
   tagName: "div",
-  className: "u-full-width",
+  className: "row",
   template: _.template($("#hand-item").html()),
   render: function(data) {
     this.data = data;

@@ -22,13 +22,14 @@
   list-style-type: none;
 }
 
+// html, body{
+//   height: 100%;
+//   overflow: hidden;
+// }
 
-html, body{
-  // height: 100%;
-  // overflow: hidden;
-
+body{
+  background-color: white;
 }
-
 .map, #smallMap{
   padding: 0px;
 }
@@ -44,13 +45,4 @@ html, body{
     padding: 0px;
     margin: 0px;
     clear: both;
-}
-.container{
-  width: 100%;
-  // overflow-y: scroll;
-
-}
-
-img{
-  width: 250px;
 }

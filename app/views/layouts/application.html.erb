@@ -3,16 +3,29 @@
 <head>
   <title>Kindlies</title>
 
+<!-- responsive design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- fonts -->
+<link href='http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps:400,700|Amatic+SC|Roboto:400,100,300,300italic|Alegreya|Montserrat+Subrayada' rel='stylesheet' type='text/css'>
+<!-- backbone templates -->
   <script type='text/template' id='hand-item'>
-  <div id='hand-card'>
-    <strong> <%%= title %> </strong>
-  </br>
-  <img src="<%%= image %>"/>
-  <%%= message %>
-  </br>
-  <%%= score %> <button type="button" class='vote'>Upvote</button>
-  <HR>
-  </div>
+    <div class="u-full-width" id='hand-card'>
+      <div class="card-top">
+        <div class="summary"><strong> <%%= title %> </strong><button type="button" class="vote button-primary">Inspired</button></div>
+        <span> <%%= score %> kind counts</span>
+        <HR>
+      </div>
+      <div class="card-body">
+      <div class="description"> <%%= message %> </div>
+      <div class="img-wrapper"><img src="<%%= image %>"/></div>
+      <!-- <div class="row">
+        <HR>
+        <button type="button" class='vote'>Inspired</button>
+      </div> -->
+    </div>
+    </div>
+
   </script>
 
 
@@ -29,7 +42,9 @@
   <%= yield %>
 </div>
 
+  <!-- javascripts -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
 <script>
 //DECLARES TIME/DATE VARS
 var today = new Date();
