@@ -13,15 +13,16 @@
   <script type='text/template' id='hand-item'>
     <div class="u-full-width" id='hand-card'>
       <div class="card-top">
-        <div class="summary"><strong> <%%= title %> </strong></div>
+        <div class="summary"><strong> <%%= title %> </strong><button type="button" class="vote button-primary">Inspired</button></div>
         <span> <%%= score %> kind counts</span>
+        <HR>
       </div>
       <div class="card-body">
       <div class="description"> <%%= message %> </div>
       <div class="img-wrapper"><img src="<%%= image %>"/></div>
       <div class="row">
         <HR>
-        <button type="button" class='vote'>Inspired</button>
+        <!-- <button type="button" class='vote'>Inspired</button> -->
       </div>
     </div>
     </div>
