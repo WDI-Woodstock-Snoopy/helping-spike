@@ -19,7 +19,6 @@ function renderMarkers(mapName){
           position: new google.maps.LatLng(data[i].lat, data[i].long),
           map: mapName
         });
-
       //var contentString = "hello my name is gaby !!!!!!";
       infowindow = new google.maps.InfoWindow({
           content: contentString
@@ -32,26 +31,30 @@ function renderMarkers(mapName){
           infowindow.open(mapName, marker);
         }
       })(marker, i));
+
+        var contentString = '<div class="info-window">' + "<p>" + data[i].title +'</div>';
+          infowindow.setContent(contentString);
+          infowindow.open(mapName, marker);
     };
   });
 }
+
 
 // //CREATE MAP THAT IS CENTERED ON Chicago
 
 var map;
 
-function initializeMap(){
+function initializeLargeMap(){
   var defaultCenter = new google.maps.LatLng(41.893974, -87.627945);
   var defaultOptions = {
     zoom: 14,
     center: defaultCenter,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
-  // mainMap = new google.maps.Map(document.getElementById("mainMap"), defaultOptions);
   largeMap = new google.maps.Map(document.getElementById("largeMap"), defaultOptions);
 
-  // renderMarkers(mainMap);
   renderMarkers(largeMap);
 }
 
-google.maps.event.addDomListener(window, 'load', initializeMap);
+
+google.maps.event.addDomListener(window, 'load', initializeLargeMap);
