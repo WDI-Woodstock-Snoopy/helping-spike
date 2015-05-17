@@ -1,6 +1,6 @@
 class HandsController < ApplicationController
 
-  def index
+  def index 
     authenticate!
     @hands = Hand.all
     @new = @hands.order(:updated_at).reverse
