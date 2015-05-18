@@ -1,8 +1,8 @@
 # Add your own tasks in files placed in lib/tasks ending in .rake,
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
-require File.expand_path('../app/models/user.rb', __FILE__)
 require File.expand_path('../app/models/hand.rb', __FILE__)
+require File.expand_path('../app/models/user.rb', __FILE__)
 
 Rails.application.load_tasks
 
@@ -26,20 +26,16 @@ namespace :db do
           password: Faker::Internet.password(8)
       })
     end
-    # location = Geocoder.search(Faker::Internet.ip_v6_address).first
-    # coordinates = [location.latitude, location.longitude]
-
     rand(25..75).times do
       location = Geocoder.search(Faker::Internet.ip_v4_address).first
-      # coordinates = [location.latitude, location.longitude]
-      puts (location)
-      # Hand.create({
-      #     title: "We are all connected",
-      #     message: "everything is awesome!",
-      #     user_id: rand(1..30),
-      #     lat: coordinates[0],
-      #     long: coordinates[1]
-      # })
+      coordinates = [location.latitude, location.longitude]
+      Hand.create({
+          title: "We are all connected",
+          message: "everything is awesome!",
+          user_id: rand(1..30),
+          lat: coordinates[0],
+          long: coordinates[1]
+      })
     end
 
   end # task :junk_data
