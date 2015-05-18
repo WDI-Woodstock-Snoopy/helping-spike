@@ -32,6 +32,10 @@ gem 'acts_as_votable', '~> 0.10.0'
 
 gem 'd3-rails', '~> 3.5.5'
 
+gem 'geocoder'
+
+gem 'faker'
+
 # gem 'materialize-sass'
 # Use Unicorn as the app server
 # gem 'unicorn'

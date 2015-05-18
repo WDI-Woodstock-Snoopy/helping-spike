@@ -8,8 +8,8 @@
     </div>
     <div class="twelve columns dev">
       <span class="three columns dev" id="share-something-form-toggle"> Share something kind </span>
-      <span class="three columns dev" id="hot-tab"> Small Acts, Big Impacts </span>
-      <span class="three columns dev" id="new-tab"> Newest Acts of Kindness </span>
+      <span class="three columns dev" id="hot-tab"> <a href="/hands"> Small Acts, Big Impacts </a></span>
+      <span class="three columns dev" id="new-tab"> <a href="/hands"> Newest Acts of Kindness </a></span>
       <span class='twelve columns dev'>
         <div class="submit-form dev">
             <form action= "/hands" enctype="multipart/form-data" class="new_hand" id="new_hand">
@@ -59,7 +59,7 @@
   var map = L.mapbox.map('map', 'mapbox.streets')
       .setView([41.893974, -87.627945], 13);
       map.zoomControl.setPosition('bottomleft');
-      
+
       $.ajax({
           method: 'get',
           url: '/api',
