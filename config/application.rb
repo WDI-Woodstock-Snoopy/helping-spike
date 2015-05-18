@@ -18,7 +18,7 @@ Bundler.require(*Rails.groups)
 Dir.glob("#{Rails.root}/app/assets/images/**/").each do |path|
       config.assets.paths << path
     end
-    
+
 module Kindlies
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
