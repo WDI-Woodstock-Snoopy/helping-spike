@@ -2,12 +2,16 @@
 <html>
 <head>
   <title>Kindlies</title>
+<!-- mapbox -->
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
 
 <!-- responsive design -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- fonts -->
 <link href='http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps:400,700|Amatic+SC|Roboto:400,100,300,300italic|Alegreya|Montserrat+Subrayada' rel='stylesheet' type='text/css'>
+
 <!-- backbone templates -->
   <script type='text/template' id='hand-item'>
     <div class="u-full-width" id='hand-card'>
@@ -15,14 +19,14 @@
         <div class="summary"><strong> <%%= title %> </strong><button type="button" class="vote button-primary">Inspired</button></div>
         <HR>
       </div>
-      <div class="card-body">
-      <div class="description"> <%%= message %> </div>
-      <div class="img-wrapper"><img src="<%%= image %>"/></div>
-      <!-- <div class="row">
-        <HR>
-        <button type="button" class='vote'>Inspired</button>
-      </div> -->
-    </div>
+        <div class="card-body">
+          <div class="description"> <%%= message %> </div>
+          <div class="img-wrapper"><img src="<%%= image %>"/></div>
+        <!-- <div class="row">
+          <HR>
+          <button type="button" class='vote'>Inspired</button>
+        </div> -->
+      </div>
     </div>
 
   </script>
@@ -35,35 +39,40 @@
 </head>
 <body>
 
-<span id='token' data-token="<%= form_authenticity_token %>"></span>
+  <span id='token' data-token="<%= form_authenticity_token %>"></span>
 
-<div class="container">
-  <%= yield %>
-</div>
+  <script>
+  L.mapbox.accessToken = 'pk.eyJ1IjoiZ2FicmllbGxlaWRhcnVpemZ1bmVzIiwiYSI6InR4a2hvX28ifQ.MKX7LdEFtdAOtDiScpSYHg';
+  </script>
 
-  <!-- javascripts -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <div class="container">
+    <%= yield %>
+  </div>
 
-<script>
-//DECLARES TIME/DATE VARS
-var today = new Date();
-var hourNow = today.getHours();
-var greeting;
-var display = $('#greetings')
+    <!-- javascripts -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
-//DISPLAYS TIME-BASED GREETING TO CURRENT_USER
-function heyYall(){
-  if (hourNow > 18){
-    greeting = 'Good Evening, ';
-  } else if (hourNow > 12){
-    greeting = 'Good Afternoon, ';
-  } else if (hourNow > 0){
-    greeting = 'Good Morning, ';
-  } else {
-    greeting = 'Welcome, ';
+
+  <script>
+  //DECLARES TIME/DATE VARS
+  var today = new Date();
+  var hourNow = today.getHours();
+  var greeting;
+  var display = $('#greetings')
+
+  //DISPLAYS TIME-BASED GREETING TO CURRENT_USER
+  function heyYall(){
+    if (hourNow > 18){
+      greeting = 'Good Evening, ';
+    } else if (hourNow > 12){
+      greeting = 'Good Afternoon, ';
+    } else if (hourNow > 0){
+      greeting = 'Good Morning, ';
+    } else {
+      greeting = 'Welcome, ';
+    }
+    display.prepend(greeting);
   }
-  display.prepend(greeting);
-}
-</script>
+  </script>
 </body>
 </html>

@@ -3,24 +3,14 @@
     <div class="row dev">
       <div class='headertop1'>
         <span class="eight columns" id="site-tagline"> Be Kind <span id="tagline2"> for no good reason.</span></span>
-        <span class="three columns dev" id="greetings"> <h7><%= @user.username %> </h7>
-          <a href="./hands"> <button type="button" name="button">Home</button> </a>
-        </span>
-        <span class="one columns dev" id="log_out">
-          <%= form_tag('/session_log_out', method: :delete) do %>
-          <%= submit_tag "Log-Out" %>
-          <% end %>
-
-        </div>
-        </span>
+        <span class="four columns dev" id="greetings"> <h7><%= @user.username %> </h7></span>
+      </div>
     </div>
     <div class="twelve columns dev">
-      <span id="share-something-form-toggle"> Share something kind | </span>
-      <span id="hot-tab"> Hot | </span>
-      <span id="new-tab"> Newest Acts of Kindness </span>
-    </div>
-    <div class="headerbottom">
-      <span class='eight columns dev'>
+      <span class="three columns dev" id="share-something-form-toggle"> Share something kind </span>
+      <span class="three columns dev" id="hot-tab"> Small Acts, Big Impacts </span>
+      <span class="three columns dev" id="new-tab"> Newest Acts of Kindness </span>
+      <span class='twelve columns dev'>
         <div class="submit-form dev">
             <form action= "/hands" enctype="multipart/form-data" class="new_hand" id="new_hand">
               <%= token_tag %>
@@ -33,13 +23,15 @@
                 <input id="actOfKindness" type="text" name="hand[message]" placeholder="Act of Kindness....">
               </div>
               <input type="file" name="hand[image]" id="file">
+            </br>
               <input id="submit-hand" class="button-primary" type="submit" value="Share the Love!">
             </form>
         </div>
       </span>
-    </div>
 </div>
 </div>
+</div>
+
 
 <div class="container">
   <div class="top">
@@ -55,10 +47,7 @@
       </div>
     </div>
 
-      <div class="row" id="mapwrapper">
-        <div class="one-third column">
-          <div class= "map" id="largeMap"></div>
-    </div>
+          <div class='map' id='map'></div>
   </div>
 
 </div>
@@ -66,6 +55,24 @@
 
 
 <script>
+////////////MAPBOX
+  var map = L.mapbox.map('map', 'mapbox.streets')
+      .setView([41.893974, -87.627945], 13);
+
+      $.ajax({
+          method: 'get',
+          url: '/api',
+          dataType: 'json',
+          })
+        .done(function(data){
+          console.log(data)
+
+          for (var i = 0; i < data.length; i++) {
+            var marker = new L.Marker(new L.LatLng(data[i].lat, data[i].long));
+            map.addLayer(marker);
+          }
+        });
+
 //DECLARES TIME/DATE VARS
 var today = new Date();
 var hourNow = today.getHours();
