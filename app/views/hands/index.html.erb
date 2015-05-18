@@ -7,16 +7,16 @@
       </div>
     </div>
     <div class="twelve columns dev">
-      <span class="eight columns dev" id="share-something-form-toggle"> Share something kind </span>
+      <span class="twelve columns dev" id="share-something-form-toggle"> Share something kind </span>
       <span class='twelve columns dev'>
         <div class="submit-form dev">
             <form action= "/hands" enctype="multipart/form-data" class="new_hand" id="new_hand">
               <%= token_tag %>
-              <div class="u-full-width">
+              <div class="twelve columns">
                 <label for="headline">Headline</label>
                 <input id="headline" type="text" name="hand[title]" placeholder="Headline....">
               </div>
-              <div class="u-full-width">
+              <div class="twelve columns">
                 <label for="actOfKindness">Describe the kind act</label>
                 <input id="actOfKindness" type="text" name="hand[message]" placeholder="Act of Kindness....">
               </div>
@@ -42,30 +42,22 @@
 
   <div class='four columns dev'>
     <div class="sidebar">
-      A little act goes a long way
-      <!-- <div class="row">
+
+      <div class="row">
         <span class='twelve columns dev'>
-          <div class= "map" id="smallMap"></div>
+            <strong>We believe a small act of kindness </br>has the power to change the world.</strong>
+          </div>
         </span>
-      </div> -->
 
-
-    <nav class="row">
-      <li>Map</li>
-      <li>SIDE</li>
-      <li>SIDE</li>
-      <li>SIDE</li>
-      <span class="twelve columns dev">
-        <%= form_tag('/session_log_out', method: :delete) do %>
-        <%= submit_tag "Log-Out" %>
-        <% end %>
-    </span>
+    <div class="row">
     <a href="./map"><button type="button" name="button">map</button></a>
-    </nav>
-  </row>
-
-</div>
-</div>
+    <span class="twelve columns dev">
+      <%= form_tag('/session_log_out', method: :delete) do %>
+      <%= submit_tag "Log-Out" %>
+      <% end %>
+    </span>
+  </div>
+  </div>
 
 
 <script>
