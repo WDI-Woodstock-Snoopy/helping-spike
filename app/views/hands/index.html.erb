@@ -7,9 +7,7 @@
       </div>
     </div>
     <div class="twelve columns dev">
-      <span class="three columns dev" id="share-something-form-toggle"> Share something kind </span>
-      <span class="three columns dev" id="hot-tab"> Small Acts, Big Impacts </span>
-      <span class="three columns dev" id="new-tab"> Newest Acts of Kindness </span>
+      <span class="eight columns dev" id="share-something-form-toggle"> Share something kind </span>
       <span class='twelve columns dev'>
         <div class="submit-form dev">
             <form action= "/hands" enctype="multipart/form-data" class="new_hand" id="new_hand">
@@ -32,8 +30,14 @@
 </div>
 </div>
 
-<div class="row" id="content">
 
+<div class="row" id="content">
+  <div class="row">
+    <span class="three columns dev" id="hot-tab"> <h5> Trending </h5></span>
+    <span class="three columns dev" id="new-tab"> <h5> New </h5></span>
+    <HR>
+  </div>
+  <class="row">
   <div class='eight columns dev' id="hand-stage"></div>
 
   <div class='four columns dev'>
@@ -56,8 +60,9 @@
         <%= submit_tag "Log-Out" %>
         <% end %>
     </span>
-    <a href="./map"><button type="button" name="button">map</button></a> 
+    <a href="./map"><button type="button" name="button">map</button></a>
     </nav>
+  </row>
 
 </div>
 </div>
