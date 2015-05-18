@@ -3,7 +3,9 @@
   <div class="container">
     <div class="row dev">
       <div class='headertop1'>
-        <span class="eight columns" id="site-tagline"> Be Kind <span id="tagline2"> for no good reason.</span></span>
+        <span class="eight columns" id="site-tagline">
+          <%= image_tag('logo.png', :style => "width: 50px; hieght: 50px;") %>
+           Be Kind <span id="tagline2"> for no good reason.</span></span>
 
         <span class="three columns dev" id="greetings"> <h7><%= @user.username %> </h7>
           <a href="/hands"> <button type="button" name="button"> Home </button> </a>
