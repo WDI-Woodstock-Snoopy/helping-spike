@@ -58,7 +58,8 @@
 ////////////MAPBOX
   var map = L.mapbox.map('map', 'mapbox.streets')
       .setView([41.893974, -87.627945], 13);
-
+      map.zoomControl.setPosition('bottomleft');
+      
       $.ajax({
           method: 'get',
           url: '/api',
