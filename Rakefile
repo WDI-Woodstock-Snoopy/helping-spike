@@ -26,7 +26,7 @@ namespace :db do
           password: Faker::Internet.password(8)
       })
     end
-    rand(25..75).times do
+    rand(10..25).times do
       location = Geocoder.search(Faker::Internet.ip_v4_address).first
       coordinates = [location.latitude, location.longitude]
       Hand.create({
@@ -34,7 +34,8 @@ namespace :db do
           message: "everything is awesome!",
           user_id: rand(1..30),
           lat: coordinates[0],
-          long: coordinates[1]
+          long: coordinates[1],
+          image: Faker::Avatar.image
       })
     end
 

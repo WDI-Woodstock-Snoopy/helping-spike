@@ -13,16 +13,16 @@ $(document).ready(function(){
   $("#new-tab").click(function(){
     getNewDeeds();
     currentViewNew = true;
-    // $("#new-tab").css("color", "#33C3F0")
-    // $("#hot-tab").css("color", "white")
+    $("#new-tab").css("color", "#33C3F0")
+    $("#hot-tab").css("color", "black")
     console.log(currentViewNew);
   })
 
   $("#hot-tab").click(function(){
     getHotDeeds();
     currentViewNew = false;
-    // $("#hot-tab").css("color", "#33C3F0")
-    // $("#new-tab").css("color", "white")
+    $("#hot-tab").css("color", "#33C3F0")
+    $("#new-tab").css("color", "black")
     console.log(currentViewNew);
   })
 
