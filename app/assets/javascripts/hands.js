@@ -170,52 +170,52 @@ function submitData(){
 
 
 
-//AJAX REQUEST TO CREATE MARKERS
-function renderMarkers(mapName){
-  $.ajax({
-      method: 'get',
-      url: '/api',
-      dataType: 'json',
-      })
-    .done(function(data){
-      console.log(data)
-
-      for (var i = 0; i < data.length; i++) {
-        marker = new google.maps.Marker({
-          position: new google.maps.LatLng(data[i].lat, data[i].long),
-          map: mapName
-        });
-
-      infowindow = new google.maps.InfoWindow({
-          content: contentString
-      });
-
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        var contentString = '<div class="info-window">' + "<p>" + data[i].title + "</br>" + data[i].message + "</p>" +'</div></br>' + data[i].image;
-        return function() {
-          infowindow.setContent(contentString);
-          infowindow.open(mapName, marker);
-        }
-      })(marker, i));
-    };
-  });
-}
+// //AJAX REQUEST TO CREATE MARKERS
+// function renderMarkers(mapName){
+//   $.ajax({
+//       method: 'get',
+//       url: '/api',
+//       dataType: 'json',
+//       })
+//     .done(function(data){
+//       console.log(data)
+//
+//       for (var i = 0; i < data.length; i++) {
+//         marker = new google.maps.Marker({
+//           position: new google.maps.LatLng(data[i].lat, data[i].long),
+//           map: mapName
+//         });
+//
+//       infowindow = new google.maps.InfoWindow({
+//           content: contentString
+//       });
+//
+//       google.maps.event.addListener(marker, 'click', (function(marker, i) {
+//         var contentString = '<div class="info-window">' + "<p>" + data[i].title + "</br>" + data[i].message + "</p>" +'</div></br>' + data[i].image;
+//         return function() {
+//           infowindow.setContent(contentString);
+//           infowindow.open(mapName, marker);
+//         }
+//       })(marker, i));
+//     };
+//   });
+// }
 
 //CREATE MAP THAT IS CENTERED ON Chicago
 
-var map;
-
-function initializeMap(){
-  var defaultCenter = new google.maps.LatLng(41.893974, -87.627945);
-  var defaultOptions = {
-    zoom: 10,
-    center: defaultCenter,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  }
-  smallMap = new google.maps.Map(document.getElementById("smallMap"), defaultOptions);
-
-  renderMarkers(smallMap);
-
-}
-
-google.maps.event.addDomListener(window, 'load', initializeMap);
+// var map;
+//
+// function initializeMap(){
+//   var defaultCenter = new google.maps.LatLng(41.893974, -87.627945);
+//   var defaultOptions = {
+//     zoom: 10,
+//     center: defaultCenter,
+//     mapTypeId: google.maps.MapTypeId.ROADMAP
+//   }
+//   smallMap = new google.maps.Map(document.getElementById("smallMap"), defaultOptions);
+//
+//   renderMarkers(smallMap);
+//
+// }
+//
+// google.maps.event.addDomListener(window, 'load', initializeMap);

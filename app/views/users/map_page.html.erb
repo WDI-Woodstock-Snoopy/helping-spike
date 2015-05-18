@@ -69,6 +69,7 @@
           console.log(data)
 
           for (var i = 0; i < data.length; i++) {
+            console.log(data[i].lat, data[i].long)
             var marker = new L.Marker(new L.LatLng(data[i].lat, data[i].long));
             map.addLayer(marker);
           }
