@@ -3,12 +3,16 @@
     <div class="row dev">
       <div class='headertop1'>
         <span class="eight columns" id="site-tagline"> Be Kind <span id="tagline2"> for no good reason.</span></span>
-        <span class="three columns dev" id="greetings"> <h7><%= @user.username %> </h7></span>
+        <span class="three columns dev" id="greetings"> <h7><%= @user.username %> </h7>
+          <a href="./hands"> <button type="button" name="button">Home</button> </a>
+        </span>
         <span class="one columns dev" id="log_out">
           <%= form_tag('/session_log_out', method: :delete) do %>
           <%= submit_tag "Log-Out" %>
           <% end %>
-        </div></span>
+
+        </div>
+        </span>
     </div>
     <div class="twelve columns dev">
       <span id="share-something-form-toggle"> Share something kind | </span>
