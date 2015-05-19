@@ -71,24 +71,30 @@
 
 <script>
 ////////////MAPBOX
-  var map = L.mapbox.map('map', 'mapbox.streets')
-      .setView([41.893974, -87.627945], 16);
-      map.zoomControl.setPosition('bottomleft');
-
-      $.ajax({
-          method: 'get',
-          url: '/api',
-          dataType: 'json',
-          })
-        .done(function(data){
-          console.log(data)
-
-          for (var i = 0; i < data.length; i++) {
-            console.log(data[i].lat, data[i].long)
-            var marker = new L.Marker(new L.LatLng(data[i].lat, data[i].long));
-            map.addLayer(marker);
-          }
-        });
+  // var map = L.mapbox.map('map', 'mapbox.streets')
+  //     .setView([41.893974, -87.627945], 16);
+  //     map.zoomControl.setPosition('bottomleft');
+  //
+  //     $.ajax({
+  //         method: 'get',
+  //         url: '/api',
+  //         dataType: 'json',
+  //         })
+  //       .done(function(data){
+  //         console.log(data)
+  //
+  //         for (var i = 0; i < data.length; i++) {
+  //           console.log(data[i].lat, data[i].long)
+  //           var marker = new L.Marker(new L.LatLng(data[i].lat, data[i].long));
+  //           map.addLayer(marker);
+  //             marker.on('click', function(e) {
+  //              var tooltip = new mapboxgl.Popup()
+  //                 .setLatLng(map.unproject(e.point))
+  //                 .setHTML('<h1>Hello World!</h1>')
+  //                 .addTo(map);
+  //           });
+  //         }
+  //       });
 
 //DECLARES TIME/DATE VARS
 var today = new Date();

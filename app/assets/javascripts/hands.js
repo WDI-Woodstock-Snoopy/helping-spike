@@ -9,6 +9,7 @@ $(document).ready(function(){
   getCoords();
   currentViewNew = true;
   getNewDeeds();
+  createmap();
 
   $("#new-tab").click(function(){
     getNewDeeds();
@@ -168,54 +169,29 @@ function submitData(){
   }
 }
 
+function createmap(){
+  var map = L.mapbox.map('map', 'mapbox.streets')
+    .setView([41.893974, -87.627945], 14);
+    map.zoomControl.setPosition('bottomleft');
 
+    $.ajax({
+        method: 'get',
+        url: '/api',
+        dataType: 'json',
+        })
+      .done(function(data){
+        console.log(data)
 
-// //AJAX REQUEST TO CREATE MARKERS
-// function renderMarkers(mapName){
-//   $.ajax({
-//       method: 'get',
-//       url: '/api',
-//       dataType: 'json',
-//       })
-//     .done(function(data){
-//       console.log(data)
-//
-//       for (var i = 0; i < data.length; i++) {
-//         marker = new google.maps.Marker({
-//           position: new google.maps.LatLng(data[i].lat, data[i].long),
-//           map: mapName
-//         });
-//
-//       infowindow = new google.maps.InfoWindow({
-//           content: contentString
-//       });
-//
-//       google.maps.event.addListener(marker, 'click', (function(marker, i) {
-//         var contentString = '<div class="info-window">' + "<p>" + data[i].title + "</br>" + data[i].message + "</p>" +'</div></br>' + data[i].image;
-//         return function() {
-//           infowindow.setContent(contentString);
-//           infowindow.open(mapName, marker);
-//         }
-//       })(marker, i));
-//     };
-//   });
-// }
-
-//CREATE MAP THAT IS CENTERED ON Chicago
-
-// var map;
-//
-// function initializeMap(){
-//   var defaultCenter = new google.maps.LatLng(41.893974, -87.627945);
-//   var defaultOptions = {
-//     zoom: 10,
-//     center: defaultCenter,
-//     mapTypeId: google.maps.MapTypeId.ROADMAP
-//   }
-//   smallMap = new google.maps.Map(document.getElementById("smallMap"), defaultOptions);
-//
-//   renderMarkers(smallMap);
-//
-// }
-//
-// google.maps.event.addDomListener(window, 'load', initializeMap);
+        for (var i = 0; i < data.length; i++) {
+          console.log(data[i].lat, data[i].long)
+          var marker = new L.Marker(new L.LatLng(data[i].lat, data[i].long));
+          map.addLayer(marker);
+            marker.on('click', function(e) {
+             var tooltip = new mapboxgl.Popup()
+                .setLatLng(map.unproject(e.point))
+                .setHTML('<h1>Hello World!</h1>')
+                .addTo(map);
+          });
+        }
+      });
+}
