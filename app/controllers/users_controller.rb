@@ -10,7 +10,12 @@ class UsersController < ApplicationController
   end
   def create
     user = User.create( user_params )
-    redirect_to "/hands"
+    if(user.save)
+    session[:user_id] = user.id
+      redirect_to '/hands'
+    else
+      redirect_to '/sign_in'
+    end
   end
 
   def edit
@@ -18,6 +23,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   def update
+    authenticate!
     user = User.find(params[:id])
     user.update! (user_params )
     redirect_to "/users/#{ user.id }"
