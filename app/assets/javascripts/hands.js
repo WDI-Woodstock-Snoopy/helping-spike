@@ -35,7 +35,7 @@ $(document).ready(function(){
     console.log(currentViewNew);
   })
 
-
+//Post images
   $('#file').on('focusout', function() {
 
     reader.onload = function (event) {
@@ -53,7 +53,7 @@ $(document).ready(function(){
   });
 
   imageFile = dataToUpload.file;
-
+///////
 
   $( "#new_hand" ).submit(function( event ) {
   // Stop form from submitting normally
