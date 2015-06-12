@@ -50,12 +50,20 @@
   </script>
 
   <div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/hands">
+            <%= image_tag('logo.png', :style => "width: 50px; hieght: 50px;") %>
+          </a>
+          <a class="navbar-brand" href="#">
+            <span id="site-tagline"> Be Kind <span id="tagline2"> for no good reason.</span></span>
+          </a>
+        </div>
+      </div>
+    </nav>
     <%= yield %>
   </div>
-
-    <!-- javascripts -->
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-
 
   <script>
   //DECLARES TIME/DATE VARS
