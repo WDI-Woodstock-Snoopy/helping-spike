@@ -6,10 +6,18 @@ var currentViewHot;
 
 //WHEN THE DOCUMENT IS READY....SHOW THE FORM AND ALLOW USER TO SUBMIT CONTENT.
 $(document).ready(function(){
+
+  $("#new_hand").hide();
+
   getCoords();
   currentViewNew = true;
   getNewDeeds();
   createmap();
+
+
+  $("#share-something-form-toggle").click(function(){
+    $( "#new_hand" ).slideToggle(500);
+  })
 
   $("#new-tab").click(function(){
     getNewDeeds();
@@ -27,11 +35,7 @@ $(document).ready(function(){
     console.log(currentViewNew);
   })
 
-  $("#hot-tab").hover(function(){
-
-    console.log(currentViewNew);
-  })
-
+//Post images
   $('#file').on('focusout', function() {
 
     reader.onload = function (event) {
@@ -47,13 +51,9 @@ $(document).ready(function(){
 
     reader.readAsDataURL(file.files[0]);
   });
+
   imageFile = dataToUpload.file;
-
-  $( "#new_hand" ).hide();
-
-  $("#share-something-form-toggle").click(function(){
-    $( "#new_hand" ).slideToggle(500);
-  })
+///////
 
   $( "#new_hand" ).submit(function( event ) {
   // Stop form from submitting normally

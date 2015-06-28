@@ -64,7 +64,7 @@
      });
 
 
-     $('#user_password').on('keyup', function(){
+     $('#user_password').on('submit', function(){
        var field = $(this);
        if (field.val().length < 6){
          $(this).css({border: 'solid 1px red'});

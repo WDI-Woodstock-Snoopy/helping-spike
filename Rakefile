@@ -26,7 +26,7 @@ namespace :db do
           password: Faker::Internet.password(8)
       })
     end
-    rand(10..25).times do
+    rand(100..500).times do
       location = Geocoder.search(Faker::Internet.ip_v4_address).first
       coordinates = [location.latitude, location.longitude]
       Hand.create({
