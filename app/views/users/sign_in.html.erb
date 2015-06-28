@@ -13,13 +13,17 @@
 </div>
 <body id="sign-inpage">
   <div class="wrapper">
+
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"> <%= value %> </div>
+    <% end %>
+
     <div class="content">
       <div class="form-section">
 
       <h1>Sign In</h1>
 
       <%= form_tag('/session_log_in', method: :post) do %>
-  
         <%= label_tag :username %>
         <%= text_field_tag :username %>
         <%= label_tag 'password' %>
@@ -33,7 +37,7 @@
     </div>
 
     <div class="sign-upform">
-      <%= form_for @user do |f|%>
+      <%= form_for @users do |f|%>
       <div class="upform">
         <%= f.label :username%>
         <%= f.text_field :username, :required => true%>

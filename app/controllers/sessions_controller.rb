@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to "/hands"
     else
+      flash[:error] = "Invalid username/password combination!"
       redirect_to "/sign_in"
     end
   end
